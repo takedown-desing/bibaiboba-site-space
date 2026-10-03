@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-357", niche: "Сертификация для маркетплейсов", scope: "около 2 лет, 3 аккаунта, ставки с потолком", spend: "73 342 ₽", views: "1 318", contacts: "270", contact_price: "271 ₽", deltas: "контактов больше при тех же расходах, +61,7% контактов", verified: false }
+case: { id: "C-357", category: "tovary", channel: "avito", niche: "Сертификация для маркетплейсов", scope: "около 2 лет, 3 аккаунта, ставки с потолком", spend: "73 342 ₽", views: "1 318", contacts: "270", contact_price: "271 ₽", deltas: "контактов больше при тех же расходах, +61,7% контактов", verified: false }
 highlights:
   - { value: "почти 2 года", label: "совместной работы" }
   - { value: "3", label: "аккаунта на Авито" }

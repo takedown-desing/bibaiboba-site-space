@@ -45,7 +45,7 @@ related:
   - { url: "/kontakty/", title: "Контакты", text: "Как с нами связаться" }
   - { url: "/brif/", title: "Бриф на проект", text: "Расскажите о задаче, мы подготовим расчёт" }
 images:
-  - { slot: hero, query: "two business partners discussing project laptop", alt: "Алексей Боровиков и Валентин Баранов обсуждают проект агентства" }
+  - { slot: hero, query: "two business partners discussing project laptop", alt: "Двое специалистов обсуждают проект за ноутбуком" }
   - { slot: inline-1, query: "remote work video call laptop notebook", alt: "Удалённая работа с клиентами по всей России" }
   - { slot: inline-2, query: "two laptops remote collaboration video call", alt: "Удалённая работа двух специалистов над одним проектом" }
 ---

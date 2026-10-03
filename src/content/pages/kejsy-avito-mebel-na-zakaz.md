@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Все кейсы", href: "/kejsy/" }
-case: { id: "C-280", niche: "Мебель на заказ (производство с шоурумом)", scope: "крупный город, отказ от массового размещения, SEO объявлений под СЧ и НЧ", spend: "31 342 ₽", views: "4 614", contacts: "226", contact_price: "138 ₽", deltas: "+284% просмотров, +804% контактов", verified: false }
+case: { id: "C-280", category: "tovary", channel: "avito", niche: "Мебель на заказ (производство с шоурумом)", scope: "крупный город, отказ от массового размещения, SEO объявлений под СЧ и НЧ", spend: "31 342 ₽", views: "4 614", contacts: "226", contact_price: "138 ₽", deltas: "+284% просмотров, +804% контактов", verified: false }
 highlights:
   - { value: "31 342 ₽", label: "бюджет на продвижение за месяц" }
   - { value: "4 614 просмотров", label: "рост на 284% к предыдущему месяцу" }

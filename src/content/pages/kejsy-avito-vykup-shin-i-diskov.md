@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Все кейсы", href: "/kejsy/" }
-case: { id: "C-285", niche: "Выкуп шин и дисков", scope: "город и область, поднятия вместо оплаты за клики", spend: "23 053 ₽", views: "8 141", contacts: "841", contact_price: "27 ₽", deltas: "+1905% просмотров, +476% контактов", verified: false }
+case: { id: "C-285", category: "shiny", channel: "avito", niche: "Выкуп шин и дисков", scope: "город и область, поднятия вместо оплаты за клики", spend: "23 053 ₽", views: "8 141", contacts: "841", contact_price: "27 ₽", deltas: "+1905% просмотров, +476% контактов", verified: false }
 highlights:
   - { value: "23 053 ₽", label: "бюджет на продвижение за месяц" }
   - { value: "8 141 просмотр", label: "рост на 1905% к предыдущему месяцу" }

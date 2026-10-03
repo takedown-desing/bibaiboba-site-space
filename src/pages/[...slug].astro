@@ -11,6 +11,7 @@ import LeadForm from '../components/LeadForm.astro';
 import images from '../data/images.json';
 import { withBase } from '../lib/site.mjs';
 import CaseCard from '../components/CaseCard.astro';
+import CaseMosaic from '../components/CaseMosaic.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -30,21 +31,14 @@ const hd = d.type === 'case' && d.case && !d.highlights?.length ? { ...d, highli
 ---
 <Base d={d} home={d.type === 'home'}>
   {d.type === 'home' ? <HomeExperience slot="hero" d={d} /> : <PageHero slot="hero" d={hd} />}
-  {d.type === 'home' ? <HomeSections d={d}><Content /></HomeSections> : (
+  {d.type === 'home' ? <HomeSections d={d}><Content /></HomeSections> : (<>
+    {allCases.length > 0 && <section class="wrap" style="padding-top:clamp(40px,6vw,90px)" aria-label="Кейсы"><CaseMosaic /></section>}
     <div class="wrap">
       <div class={`content-grid ${isForm ? 'is-form' : toc.length > 2 ? 'has-aside' : ''}`}>
         <div class="flow-col">
           <article class="prose flow">
             <Content />
           </article>
-          {allCases.length > 0 && (
-            <section class="sec">
-              <div class="sec-head"><span class="sec-num" aria-hidden="true">[★]</span><h2 id="vse-kejsy">Все кейсы</h2></div>
-              <div class="case-grid cards" data-count={allCases.length}>
-                {allCases.map((c) => <CaseCard c={c} />)}
-              </div>
-            </section>
-          )}
           {!isForm && d.type !== 'legal' && <div class="sec sec-tight"><AuthorRow author={d.author} date={d.date_modified} /></div>}
           {d.faq?.length > 0 && <div class="sec"><Faq items={d.faq} /></div>}
           {d.related?.length > 0 && <div class="sec"><Related items={d.related} /></div>}
@@ -59,7 +53,7 @@ const hd = d.type === 'case' && d.case && !d.highlights?.length ? { ...d, highli
         )}
       </div>
     </div>
-  )}
+  </>)}
   {d.type !== 'legal' && !isForm && (
     <section class="end-cta">
       <div class="wrap">

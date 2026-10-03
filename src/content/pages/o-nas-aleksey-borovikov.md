@@ -47,7 +47,7 @@ related:
   - { url: "/sozdanie-sajtov/", title: "Создание сайта под ключ", text: "Разработка и запуск нового сайта" }
   - { url: "/o-nas/", title: "О нас", text: "Как агентство устроено целиком" }
 images:
-  - { slot: hero, query: "seo specialist analyzing website analytics dashboard laptop", alt: "Алексей Боровиков анализирует показатели сайта в SEO-отчёте" }
+  - { slot: hero, query: "seo specialist analyzing website analytics dashboard laptop", alt: "Специалист разбирает показатели сайта в SEO-отчёте" }
   - { slot: inline-1, query: "developer writing code website screen", alt: "Работа с кодом и вёрсткой сайта" }
   - { slot: inline-2, query: "laptop analytics charts home office desk", alt: "Рабочее место SEO-специалиста с аналитикой на экране" }
 ---

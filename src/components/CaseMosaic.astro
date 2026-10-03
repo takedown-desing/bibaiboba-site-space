@@ -1,0 +1,68 @@
+---
+// Мозаика кейсов с вкладками разделов (по образцу портфолио addu.ru):
+// крупные цветные плитки разной ширины, сверху канал и раздел, снизу ниша и подпись,
+// справа предмет на прозрачном фоне (case-art.json) или фото с переходом в цвет плитки.
+import { getCollection } from 'astro:content';
+import { withBase, CASE_CATS } from '../lib/site.mjs';
+import { previewFor, artFor, mosaicSizes } from '../lib/previews.mjs';
+interface Props { limit?: number; tabs?: boolean; id?: string }
+const { limit = 0, tabs = true, id = 'cases' } = Astro.props;
+const num = (s) => Number(String(s || '0').replace(/\D/g, '')) || 0;
+const cases = (await getCollection('pages'))
+  .filter((p) => p.data.type === 'case')
+  .map((p) => p.data)
+  .sort((a, b) => num(b.case?.contacts) - num(a.case?.contacts));
+const catName = Object.fromEntries(CASE_CATS);
+const cats = CASE_CATS.filter(([k]) => cases.some((c) => c.case?.category === k));
+const shown = limit ? cases.slice(0, limit) : cases;
+const sizes = mosaicSizes(shown.length);
+const tones = ['t-orange', 't-ink', 't-sand', 't-slate', 't-steel', 't-olive'];
+---
+<div class="mosaic" data-mosaic data-limit={limit || undefined} id={id}>
+  {tabs && (
+    <div class="mosaic-tabs" role="group" aria-label="Разделы кейсов">
+      <button type="button" data-filter="all" aria-pressed="true">Все <span>{cases.length}</span></button>
+      {cats.map(([k, label]) => <button type="button" data-filter={k} aria-pressed="false">{label} <span>{cases.filter((c) => c.case?.category === k).length}</span></button>)}
+    </div>
+  )}
+  <div class="mosaic-grid">
+    {cases.map((c, i) => {
+      const art = artFor(c.url);
+      const pic = previewFor(c.url);
+      const visible = i < shown.length;
+      return (
+        <a class={`mosaic-tile ${tones[i % tones.length]} ${visible ? sizes[i] : ''} ${art ? 'has-art' : 'has-photo'}`} href={withBase(c.url)} data-cat={c.case?.category} hidden={!visible}>
+          {art
+            ? <img class="mt-art" src={withBase(art.file)} alt={art.alt || c.case?.niche} width={art.width || 900} height={art.height || 900} loading="lazy" decoding="async" />
+            : pic && <img class="mt-photo" src={withBase(pic.file)} alt={pic.alt || c.case?.niche} width="1200" height="800" loading="lazy" decoding="async" />}
+          <span class="mt-top"><span>Авито · {catName[c.case?.category] || 'Кейс'}</span><span class="mt-num">{c.case?.contacts} обращений</span></span>
+          <span class="mt-bottom">
+            <span class="mt-title">{String(c.case?.niche || '').replace(/\//g, '/\u2060')}</span>
+            <span class="mt-sub">{c.case?.scope}</span>
+            <span class="mt-meta">{c.case?.contact_price} за обращение{c.case?.deltas ? ` · ${c.case.deltas}` : ''}</span>
+          </span>
+        </a>
+      );
+    })}
+  </div>
+</div>
+
+<script>
+  const ROWS = [['w8', 'w4'], ['w12'], ['w6', 'w6'], ['w4', 'w8']];
+  const SIZES = ['w4', 'w6', 'w8', 'w12'];
+  const sizesFor = (n) => { const out = []; let r = 0; while (out.length < n) { const row = ROWS[r % ROWS.length]; if (row.length > n - out.length) out.push('w12'); else out.push(...row); r++; } return out.slice(0, n); };
+  document.querySelectorAll<HTMLElement>('[data-mosaic]').forEach((root) => {
+    const tiles = [...root.querySelectorAll<HTMLElement>('.mosaic-tile')];
+    const btns = [...root.querySelectorAll<HTMLButtonElement>('[data-filter]')];
+    const limit = Number(root.dataset.limit || 0);
+    const apply = (f: string) => {
+      const match = tiles.filter((t) => f === 'all' || t.dataset.cat === f);
+      const show = limit ? match.slice(0, limit) : match;
+      const sz = sizesFor(show.length);
+      tiles.forEach((t) => { t.hidden = !show.includes(t); t.classList.remove(...SIZES); });
+      show.forEach((t, i) => t.classList.add(sz[i]));
+      btns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.filter === f)));
+    };
+    btns.forEach((b) => b.addEventListener('click', () => apply(b.dataset.filter || 'all')));
+  });
+</script>

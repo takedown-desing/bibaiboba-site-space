@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-333", niche: "Вскрытие замков", scope: "город с высокой конкуренцией, замена объявлений каждые 3 дня, отключение ночью", spend: "43 504 ₽", views: "451", contacts: "156", contact_price: "279 ₽", deltas: "+22% просмотров, +31% контактов, +3% бюджета", verified: true }
+case: { id: "C-333", category: "uslugi", channel: "avito", niche: "Вскрытие замков", scope: "город с высокой конкуренцией, замена объявлений каждые 3 дня, отключение ночью", spend: "43 504 ₽", views: "451", contacts: "156", contact_price: "279 ₽", deltas: "+22% просмотров, +31% контактов, +3% бюджета", verified: true }
 highlights:
   - { value: "+31%", label: "рост контактов за месяц" }
   - { value: "+3%", label: "рост бюджета за тот же месяц" }

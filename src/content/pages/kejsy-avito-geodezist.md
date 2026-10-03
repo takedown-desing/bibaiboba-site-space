@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-315", niche: "Услуги геодезиста", scope: "небольшой город, бюджет до 30 000 ₽", spend: "20 359 ₽", views: "229", contacts: "87", contact_price: "235 ₽", deltas: "результат за 1 неделю, загрузка на 1,5 месяца вперёд", verified: false }
+case: { id: "C-315", category: "stroyka", channel: "avito", niche: "Услуги геодезиста", scope: "небольшой город, бюджет до 30 000 ₽", spend: "20 359 ₽", views: "229", contacts: "87", contact_price: "235 ₽", deltas: "результат за 1 неделю, загрузка на 1,5 месяца вперёд", verified: false }
 highlights:
   - { value: "1 неделя", label: "до первого результата" }
   - { value: "87", label: "контактов за первую неделю" }

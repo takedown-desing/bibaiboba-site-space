@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-250", niche: "Электрика под ключ", scope: "3 бригады, город и область, 3 месяца работы", spend: "124 718 ₽", views: "2 085", contacts: "703", contact_price: "177 ₽", deltas: "+47,5% просмотров, +117% контактов", verified: false }
+case: { id: "C-250", category: "uslugi", channel: "avito", niche: "Электрика под ключ", scope: "3 бригады, город и область, 3 месяца работы", spend: "124 718 ₽", views: "2 085", contacts: "703", contact_price: "177 ₽", deltas: "+47,5% просмотров, +117% контактов", verified: false }
 highlights:
   - { value: "3", label: "бригады загружены проектами" }
   - { value: "703", label: "контакта за месяц" }

@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-356", niche: "Продажа мини-кранов", scope: "больше 6 месяцев, 2 аккаунта, упор на рекомендации, 20+ инфографик", spend: "67 033 ₽", views: "56 536", contacts: "204", contact_price: "328 ₽", deltas: "+96,5% просмотров, +38,8% контактов", verified: true }
+case: { id: "C-356", category: "stroyka", channel: "avito", niche: "Продажа мини-кранов", scope: "больше 6 месяцев, 2 аккаунта, упор на рекомендации, 20+ инфографик", spend: "67 033 ₽", views: "56 536", contacts: "204", contact_price: "328 ₽", deltas: "+96,5% просмотров, +38,8% контактов", verified: true }
 highlights:
   - { value: "20+", label: "вариантов инфографики протестировано" }
   - { value: "56 536", label: "просмотров за месяц" }

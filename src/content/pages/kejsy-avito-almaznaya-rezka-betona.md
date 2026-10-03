@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Все кейсы", href: "/kejsy/" }
-case: { id: "C-270", niche: "Алмазная резка бетона и бурение", scope: "9 объявлений под разные аудитории", spend: "32 476 ₽", views: "468", contacts: "136", contact_price: "238 ₽", deltas: "+568% просмотров, +1411% контактов", verified: false }
+case: { id: "C-270", category: "stroyka", channel: "avito", niche: "Алмазная резка бетона и бурение", scope: "9 объявлений под разные аудитории", spend: "32 476 ₽", views: "468", contacts: "136", contact_price: "238 ₽", deltas: "+568% просмотров, +1411% контактов", verified: false }
 highlights:
   - { value: "32 476 ₽", label: "бюджет на продвижение за месяц" }
   - { value: "468 просмотров", label: "рост на 568% к предыдущему месяцу" }

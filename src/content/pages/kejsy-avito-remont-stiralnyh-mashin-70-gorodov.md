@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-148", niche: "Ремонт стиральных машин", scope: "запуск с нуля, 70+ городов", spend: "264 649 ₽", views: "9 646", contacts: "4 871", contact_price: "54 ₽", deltas: "+241,7% просмотров, +482,7% контактов", verified: true }
+case: { id: "C-148", category: "uslugi", channel: "avito", niche: "Ремонт стиральных машин", scope: "запуск с нуля, 70+ городов", spend: "264 649 ₽", views: "9 646", contacts: "4 871", contact_price: "54 ₽", deltas: "+241,7% просмотров, +482,7% контактов", verified: true }
 highlights:
   - { value: "70+", label: "городов запущено с нуля" }
   - { value: "4 871", label: "контакт за месяц" }

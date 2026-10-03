@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import { withBase } from '../lib/site.mjs';
 import { previewFor } from '../lib/previews.mjs';
 import CaseCard from './CaseCard.astro';
+import CaseMosaic from './CaseMosaic.astro';
 interface Props { d: any }
 const { d } = Astro.props;
 const cases = (await getCollection('pages')).filter((p) => p.data.type === 'case').map((p) => p.data);
@@ -22,23 +23,7 @@ const rest = cases.filter((c) => !featured.includes(c)).slice(0, 6);
 <section class="wrap cq" style="padding-block:clamp(40px,6vw,90px)">
   <div class="kicker"><span>[02]</span><span><strong>Кейсы Авито с цифрами из кабинета</strong></span></div>
   <h2 class="section-title">Наши проекты</h2>
-  <div class="case-grid cards" data-count={featured.length}>
-    {featured.map((c) => (
-      <a class="case-card case-feature" href={withBase(c.url)}>
-        {previewFor(c.url) && <img class="case-feature-bg" src={withBase(previewFor(c.url).file)} alt={previewFor(c.url).alt || c.case.niche} loading="lazy" decoding="async" width="1200" height="800" />}
-        <span class="case-niche">{c.case.niche}</span>
-        <span style="font:400 clamp(64px,8vw,120px)/.85 var(--display)">{c.case.contacts}</span>
-        <span class="case-metric">обращений за месяц · {c.case.contact_price} за обращение</span>
-        {c.case.deltas && <span class="case-delta">{c.case.deltas}</span>}
-        <span class="case-more">Читать кейс</span>
-      </a>
-    ))}
-  </div>
-  {rest.length > 0 && (
-    <div class="case-grid cards" data-count={rest.length} style="margin-top:14px">
-      {rest.map((c) => <CaseCard c={c} />)}
-    </div>
-  )}
+  <CaseMosaic limit={7} id="home-cases" />
   <p style="margin-top:28px"><a class="pill pill-glass" href={withBase('/kejsy/')}>Все кейсы</a></p>
 </section>
 

@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-177", niche: "Ремонт квартир, домов и офисов", scope: "20 городов, раньше заявки шли из других каналов", spend: "125 016 ₽", views: "3 931", contacts: "1 169", contact_price: "106 ₽", deltas: "", verified: false }
+case: { id: "C-177", category: "uslugi", channel: "avito", niche: "Ремонт квартир, домов и офисов", scope: "20 городов, раньше заявки шли из других каналов", spend: "125 016 ₽", views: "3 931", contacts: "1 169", contact_price: "106 ₽", deltas: "", verified: false }
 highlights:
   - { value: "20", label: "городов и область" }
   - { value: "1 169", label: "контактов за месяц" }

@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение на Авито", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Получить консультацию", href: "/avito-konsultaciya/" }
-case: { id: "C-174", niche: "Вскрытие замков", scope: "35 городов, задача выйти в ноль", spend: "203 858 ₽", views: "2 769", contacts: "1 127", contact_price: "180 ₽", deltas: "+75,3% просмотров, +93% контактов", verified: true }
+case: { id: "C-174", category: "uslugi", channel: "avito", niche: "Вскрытие замков", scope: "35 городов, задача выйти в ноль", spend: "203 858 ₽", views: "2 769", contacts: "1 127", contact_price: "180 ₽", deltas: "+75,3% просмотров, +93% контактов", verified: true }
 highlights:
   - { value: "35", label: "городов по всей России" }
   - { value: "1 127", label: "контактов за месяц" }

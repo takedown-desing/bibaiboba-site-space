@@ -21,7 +21,7 @@ breadcrumbs:
 hero_cta:
   primary: { label: "Обсудить продвижение", href: "/prodvizhenie-na-avito/" }
   secondary: { label: "Все кейсы", href: "/kejsy/" }
-case: { id: "C-340", niche: "Продажа новых и б/у шин, большой склад", scope: "ежедневный выпуск объявлений, автоархив проданного", spend: "521 568 ₽", views: "83 197", contacts: "1 825", contact_price: "286 ₽", deltas: "+21% просмотров, +83% контактов", verified: true }
+case: { id: "C-340", category: "shiny", channel: "avito", niche: "Продажа новых и б/у шин, большой склад", scope: "ежедневный выпуск объявлений, автоархив проданного", spend: "521 568 ₽", views: "83 197", contacts: "1 825", contact_price: "286 ₽", deltas: "+21% просмотров, +83% контактов", verified: true }
 highlights:
   - { value: "521 568 ₽", label: "бюджет на продвижение за месяц, +19%" }
   - { value: "83 197 просмотров", label: "рост на 21% к предыдущему месяцу" }
