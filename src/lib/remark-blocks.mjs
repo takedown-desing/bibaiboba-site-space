@@ -76,7 +76,7 @@ export default function remarkBlocks(options = {}) {
         const ids = String(attrs.ids || '').split(',').map((s) => s.trim()).filter(Boolean);
         const cards = ids.map((id) => cases[id]).filter(Boolean);
         const html = cards.length
-          ? `<div class="case-grid">${cards.map((c) => `<a class="case-card" href="${esc(withBase(c.url))}"><span class="case-niche">${esc(c.niche)}</span><span class="case-metric"><b>${esc(c.contacts)}</b> обращений за месяц</span><span class="case-metric"><b>${esc(c.contact_price)}</b> цена обращения</span>${c.deltas ? `<span class="case-delta">${esc(c.deltas)}</span>` : ''}<span class="case-more">Читать кейс</span></a>`).join('')}</div>`
+          ? `<div class="case-grid cards" data-count="${cards.length}">${cards.map((c) => `<a class="case-card" href="${esc(withBase(c.url))}"><span class="case-niche">${esc(c.niche)}</span><span class="case-metric"><b>${esc(c.contacts)}</b> обращений за месяц</span><span class="case-metric"><b>${esc(c.contact_price)}</b> цена обращения</span>${c.deltas ? `<span class="case-delta">${esc(c.deltas)}</span>` : ''}<span class="case-more">Читать кейс</span></a>`).join('')}</div>`
           : '';
         parent.children.splice(index, 1, { type: 'html', value: html });
         return index;

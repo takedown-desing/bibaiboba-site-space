@@ -1,15 +1,12 @@
 ---
-import { withBase } from '../lib/site.mjs';
+// Шапка варианта Space: стеклянная пилюля с выпадающими подразделами + полноэкранное меню.
+import { getCollection } from 'astro:content';
+import { withBase, NAV } from '../lib/site.mjs';
 interface Props { current?: string; solid?: boolean }
 const { current = '', solid = false } = Astro.props;
-const nav = [['/seo/', 'Поиск'], ['/geo/', 'Нейросети'], ['/avitolog/', 'Авито'], ['/kejsy/', 'Кейсы']];
-const isActive = (h) => current.startsWith(h);
-const groups = [
-  { t: 'Поиск', l: [['/seo/', 'SEO-продвижение'], ['/seo/yandex/', 'В Яндексе'], ['/seo/google/', 'В Google'], ['/seo/internet-magazin/', 'Интернет-магазин'], ['/seo/sajt-uslug/', 'Сайт услуг'], ['/seo/optimizaciya/', 'SEO-оптимизация'], ['/seo-specialist/', 'Частный специалист']] },
-  { t: 'Нейросети и аудит', l: [['/geo/', 'GEO-оптимизация'], ['/geo/prodvizhenie-v-nejrosetyah/', 'Продвижение в нейросетях'], ['/geo/audit/', 'Аудит AI-готовности'], ['/audit-sajta/', 'SEO-аудит'], ['/audit-sajta/tehnicheskij/', 'Технический аудит'], ['/audit-sajta/yuzabiliti/', 'Юзабилити-аудит']] },
-  { t: 'Сайты', l: [['/sozdanie-sajtov/', 'Создание сайта'], ['/sozdanie-sajtov/lending/', 'Лендинг'], ['/sozdanie-sajtov/s-prodvizheniem/', 'Сайт с продвижением'], ['/redizajn-sajta/', 'Редизайн'], ['/dorabotka-sajta/', 'Доработка'], ['/podderzhka-sajta/', 'Поддержка']] },
-  { t: 'Авито и агентство', l: [['/avitolog/', 'Авитолог'], ['/prodvizhenie-na-avito/', 'Продвижение на Авито'], ['/avito-konsultaciya/', 'Консультация'], ['/kejsy/', 'Кейсы'], ['/o-nas/', 'О нас'], ['/kontakty/', 'Контакты']] },
-];
+const cases = (await getCollection('pages')).filter((p) => p.data.type === 'case').map((p) => [p.data.url, p.data.case?.niche || p.data.h1]);
+const nav = NAV.map((g) => ({ ...g, items: g.cases ? [...g.items, ...cases] : g.items }));
+const isActive = (g) => current !== '/' && (current.startsWith(g.href) || g.items.some(([h]) => current === h));
 ---
 <header class={`site-header ${solid ? 'is-solid' : ''}`}>
   <a class="brand" href={withBase('/')} aria-label="Биба и Боба, на главную">
@@ -18,7 +15,19 @@ const groups = [
   </a>
   <div class="header-actions">
     <nav class="nav" aria-label="Основная навигация">
-      {nav.map(([h, t]) => <a class={isActive(h) ? 'active' : ''} aria-current={isActive(h) ? 'page' : undefined} href={withBase(h)}>{t}</a>)}
+      <ul class="nav-list">
+        {nav.map((g, i) => (
+          <li class="nav-dd" data-dd>
+            <a class={isActive(g) ? 'active' : ''} aria-current={current === g.href ? 'page' : undefined} href={withBase(g.href)}>{g.short}</a>
+            <button type="button" class="dd-toggle" aria-expanded="false" aria-controls={`dd-${i}`} aria-label={`Подразделы: ${g.label}`}><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="dd-panel" id={`dd-${i}`}>
+              <ul class={g.items.length > 6 ? 'is-wide' : ''}>
+                {g.items.map(([h, l], k) => <li><a class={current === h ? 'is-current' : ''} href={withBase(h)}><span>[{String(k + 1).padStart(2, '0')}]</span>{l}</a></li>)}
+              </ul>
+            </div>
+          </li>
+        ))}
+      </ul>
     </nav>
     <button class="menu-btn" type="button" data-menu-open aria-expanded="false" aria-controls="menu-overlay">Меню</button>
   </div>
@@ -29,8 +38,11 @@ const groups = [
     <button class="menu-btn" type="button" data-menu-close>Закрыть</button>
   </div>
   <div class="menu-grid">
-    {groups.map((g) => (
-      <div><h2>{g.t}</h2><ul>{g.l.map(([h, t]) => <li><a href={withBase(h)}>{t}</a></li>)}</ul></div>
+    {nav.map((g) => (
+      <details class="menu-group" open>
+        <summary><h2>{g.label}</h2></summary>
+        <ul>{g.items.map(([h, t]) => <li><a href={withBase(h)}>{t}</a></li>)}</ul>
+      </details>
     ))}
   </div>
   <p style="margin-top:40px"><a class="pill pill-light" href={withBase('/audit-besplatno/')}><span class="dot"></span>Бесплатный экспресс-аудит</a></p>
@@ -43,4 +55,14 @@ const groups = [
   openBtn?.addEventListener('click', open);
   document.querySelector('[data-menu-close]')?.addEventListener('click', close);
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && ov.classList.contains('is-open')) close(); });
+  // на телефоне группы меню свёрнуты, на десктопе раскрыты
+  if (matchMedia('(max-width: 900px)').matches) ov.querySelectorAll('details.menu-group').forEach((d) => d.removeAttribute('open'));
+  const dds = [...document.querySelectorAll('[data-dd]')];
+  const shut = (except) => dds.forEach((dd) => { if (dd !== except) { dd.classList.remove('open'); dd.querySelector('.dd-toggle')?.setAttribute('aria-expanded', 'false'); } });
+  dds.forEach((dd) => {
+    const btn = dd.querySelector('.dd-toggle');
+    btn?.addEventListener('click', (e) => { e.stopPropagation(); const on = !dd.classList.contains('open'); shut(dd); dd.classList.toggle('open', on); btn.setAttribute('aria-expanded', String(on)); });
+  });
+  document.addEventListener('click', (e) => { if (!(e.target as Element).closest?.('[data-dd]')) shut(null); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') shut(null); });
 </script>

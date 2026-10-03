@@ -31,29 +31,31 @@ const hd = d.type === 'case' && d.case && !d.highlights?.length ? { ...d, highli
   {d.type === 'home' ? <HomeExperience slot="hero" d={d} /> : <PageHero slot="hero" d={hd} />}
   {d.type === 'home' ? <HomeSections d={d}><Content /></HomeSections> : (
     <div class="wrap">
-      <div class={`content-grid ${toc.length > 2 && !isForm ? 'has-aside' : ''}`}>
-        <article class="prose">
-          <Content />
-          {img['inline-1'] && <figure style="margin-top:2.4em"><img src={withBase(img['inline-1'].file)} alt={img['inline-1'].alt} width="1200" height="800" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:36px;filter:grayscale(.25) contrast(1.05)" /></figure>}
+      <div class={`content-grid ${isForm ? 'is-form' : toc.length > 2 ? 'has-aside' : ''}`}>
+        <div class="flow-col">
+          <article class="prose flow">
+            <Content />
+          </article>
           {allCases.length > 0 && (
-            <div class="case-grid" style="margin-top:2.4em">
-              {allCases.map((c) => <a class="case-card" href={withBase(c.url)}><span class="case-niche">{c.case?.niche}</span><span class="case-metric"><b>{c.case?.contacts}</b> обращений</span><span class="case-metric"><b>{c.case?.contact_price}</b> за обращение</span>{c.case?.deltas && <span class="case-delta">{c.case.deltas}</span>}<span class="case-more">Читать кейс</span></a>)}
-            </div>
+            <section class="sec">
+              <div class="sec-head"><span class="sec-num" aria-hidden="true">[★]</span><h2 id="vse-kejsy">Все кейсы</h2></div>
+              <div class="case-grid cards" data-count={allCases.length}>
+                {allCases.map((c) => <a class="case-card" href={withBase(c.url)}><span class="case-niche">{c.case?.niche}</span><span class="case-metric"><b>{c.case?.contacts}</b> обращений</span><span class="case-metric"><b>{c.case?.contact_price}</b> за обращение</span>{c.case?.deltas && <span class="case-delta">{c.case.deltas}</span>}<span class="case-more">Читать кейс</span></a>)}
+              </div>
+            </section>
           )}
-        </article>
-        {isForm ? <div id="form" style="scroll-margin-top:24px"><LeadForm kind={formKind} title={formKind === 'audit' ? 'Заявка на аудит' : formKind === 'brief' ? 'Бриф на проект' : 'Написать нам'} /></div> : toc.length > 2 && (
-          <aside>
+          {!isForm && d.type !== 'legal' && <div class="sec sec-tight"><AuthorRow author={d.author} date={d.date_modified} /></div>}
+          {d.faq?.length > 0 && <div class="sec"><Faq items={d.faq} /></div>}
+          {d.related?.length > 0 && <div class="sec"><Related items={d.related} /></div>}
+        </div>
+        {isForm ? <div id="form" class="form-col" style="scroll-margin-top:24px"><LeadForm kind={formKind} title={formKind === 'audit' ? 'Заявка на аудит' : formKind === 'brief' ? 'Бриф на проект' : 'Написать нам'} /></div> : toc.length > 2 && (
+          <aside class="aside-col">
             <div class="aside-sticky">
-              <nav class="toc" aria-label="Содержание страницы"><p>На этой странице</p><ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}{d.faq?.length > 0 && <li><a href="#faq-title">Частые вопросы</a></li>}</ol></nav>
+              <nav class="toc" aria-label="Содержание страницы"><p>На этой странице</p><ol>{toc.map((h, i) => <li><a href={`#${h.slug}`}><span>[{String(i + 1).padStart(2, '0')}]</span>{h.text}</a></li>)}{d.faq?.length > 0 && <li><a href="#faq-title"><span>[?]</span>Частые вопросы</a></li>}</ol></nav>
               <div class="aside-cta"><p>Проверим ваш сайт или профиль Авито бесплатно</p><a class="pill pill-light" href={withBase('/audit-besplatno/')}><span class="dot"></span>Получить аудит</a></div>
             </div>
           </aside>
         )}
-      </div>
-      <div style="display:grid;gap:clamp(56px,7vw,100px);padding-bottom:clamp(56px,8vw,110px);max-width:1100px">
-        {d.type !== 'legal' && <AuthorRow author={d.author} date={d.date_modified} />}
-        <Faq items={d.faq || []} />
-        <Related items={d.related || []} />
       </div>
     </div>
   )}

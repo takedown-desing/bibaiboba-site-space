@@ -15,7 +15,7 @@ for (const f of fs.readdirSync(DIR).filter((x) => x.endsWith('.md'))) {
   const m = fs.readFileSync(path.join(DIR, f), 'utf8').match(/^---\n([\s\S]*?)\n---\n/);
   if (!m) continue;
   const d = yaml.load(m[1]);
-  for (const im of (d.images || []).filter((x) => ['hero', 'inline-1'].includes(x.slot))) {
+  for (const im of (d.images || []).filter((x) => /^(hero|inline-\d+)$/.test(x.slot))) {
     if (manifest[d.slug]?.[im.slot]) continue;
     const q = encodeURIComponent(im.query || 'business laptop');
     const r = await fetch(`https://api.pexels.com/v1/search?query=${q}&orientation=landscape&per_page=15`, { headers: { Authorization: KEY } });

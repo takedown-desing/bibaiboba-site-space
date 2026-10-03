@@ -17,6 +17,24 @@
    "pexels_id": 6770775,
    "pexels_url": "https://www.pexels.com/photo/graph-of-the-movement-of-the-value-of-bitcoin-6770775/",
    "photographer": "Alesia  Kozik"
+  },
+  "inline-2": {
+   "file": "/img/audit-sajta-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Чек-лист этапов SEO-аудита сайта",
+   "pexels_id": 33266805,
+   "pexels_url": "https://www.pexels.com/photo/organized-workspace-with-checklists-and-laptop-33266805/",
+   "photographer": "Jakub Zerdzicki"
+  },
+  "inline-3": {
+   "file": "/img/audit-sajta-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Обсуждение отчёта по аудиту на встрече",
+   "pexels_id": 7580792,
+   "pexels_url": "https://www.pexels.com/photo/person-holding-white-printer-paper-7580792/",
+   "photographer": "RDNE Stock project"
   }
  },
  "avitolog": {
@@ -37,6 +55,24 @@
    "pexels_id": 106344,
    "pexels_url": "https://www.pexels.com/photo/black-samsung-tablet-computer-106344/",
    "photographer": "AS Photography"
+  },
+  "inline-2": {
+   "file": "/img/avitolog-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "График роста просмотров и обращений",
+   "pexels_id": 7876379,
+   "pexels_url": "https://www.pexels.com/photo/a-report-paper-on-white-board-7876379/",
+   "photographer": "https://kaboompics.com/"
+  },
+  "inline-3": {
+   "file": "/img/avitolog-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Предприниматель собирает заказы от новых клиентов",
+   "pexels_id": 7289707,
+   "pexels_url": "https://www.pexels.com/photo/woman-holding-black-shoes-on-top-of-the-box-7289707/",
+   "photographer": "Kampus Production"
   }
  },
  "sozdanie-sajtov": {
@@ -57,6 +93,24 @@
    "pexels_id": 1181343,
    "pexels_url": "https://www.pexels.com/photo/man-wearing-blue-dress-shirt-facing-whiteboard-1181343/",
    "photographer": "Christina Morillo"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Команда работает над макетом сайта",
+   "pexels_id": 3182800,
+   "pexels_url": "https://www.pexels.com/photo/people-in-front-of-the-computers-3182800/",
+   "photographer": "fauxels"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Готовый сайт на экране ноутбука",
+   "pexels_id": 461073,
+   "pexels_url": "https://www.pexels.com/photo/person-holding-a-cup-of-coffee-beside-macbook-461073/",
+   "photographer": "Pixabay"
   }
  },
  "audit-besplatno": {
@@ -99,6 +153,24 @@
    "pexels_id": 270632,
    "pexels_url": "https://www.pexels.com/photo/computer-coding-270632/",
    "photographer": "Pixabay"
+  },
+  "inline-2": {
+   "file": "/img/geo-audit-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Специалист разбирает отчёт по результатам аудита",
+   "pexels_id": 7128952,
+   "pexels_url": "https://www.pexels.com/photo/ethnic-man-reading-document-and-working-on-laptop-7128952/",
+   "photographer": "Michael Burrows"
+  },
+  "inline-3": {
+   "file": "/img/geo-audit-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Чек-лист проверки сайта на столе",
+   "pexels_id": 9034989,
+   "pexels_url": "https://www.pexels.com/photo/person-writing-on-white-paper-9034989/",
+   "photographer": "RDNE Stock project"
   }
  },
  "geo-prodvizhenie-v-nejrosetyah": {
@@ -119,6 +191,24 @@
    "pexels_id": 4330787,
    "pexels_url": "https://www.pexels.com/photo/panel-cables-on-panel-patch-server-4330787/",
    "photographer": "Brett Sayles"
+  },
+  "inline-2": {
+   "file": "/img/geo-prodvizhenie-v-nejrosetyah-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Подготовка контента сайта для продвижения в нейросетях",
+   "pexels_id": 9040610,
+   "pexels_url": "https://www.pexels.com/photo/woman-with-a-laptop-in-her-lap-9040610/",
+   "photographer": "Alena Darmel"
+  },
+  "inline-3": {
+   "file": "/img/geo-prodvizhenie-v-nejrosetyah-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Человек задаёт вопрос нейросети со смартфона",
+   "pexels_id": 15940006,
+   "pexels_url": "https://www.pexels.com/photo/close-up-of-a-smartphone-displaying-a-conversation-with-chatgpt-15940006/",
+   "photographer": "Airam Dato-on"
   }
  },
  "geo": {
@@ -139,6 +229,24 @@
    "pexels_id": 9951077,
    "pexels_url": "https://www.pexels.com/photo/codes-on-screen-9951077/",
    "photographer": "Tibe De Kort"
+  },
+  "inline-2": {
+   "file": "/img/geo-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Техническая подготовка сайта к GEO-оптимизации",
+   "pexels_id": 7988114,
+   "pexels_url": "https://www.pexels.com/photo/a-person-using-laptop-7988114/",
+   "photographer": "Mikhail Nilov"
+  },
+  "inline-3": {
+   "file": "/img/geo-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Визуализация связей данных в нейросети",
+   "pexels_id": 17485657,
+   "pexels_url": "https://www.pexels.com/photo/an-artist-s-illustration-of-artificial-intelligence-ai-this-image-depicts-how-ai-could-adapt-to-an-infinite-amount-of-uses-it-was-created-by-nidia-dias-as-part-of-the-visualising-ai-pr-17485657/",
+   "photographer": "Google DeepMind"
   }
  },
  "home": {
@@ -159,6 +267,15 @@
    "pexels_id": 38888656,
    "pexels_url": "https://www.pexels.com/photo/kanban-board-and-computer-screen-in-office-setting-38888656/",
    "photographer": "Jakub Zerdzicki"
+  },
+  "inline-2": {
+   "file": "/img/home-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "График роста обращений с объявлений на экране",
+   "pexels_id": 6770610,
+   "pexels_url": "https://www.pexels.com/photo/multiple-graphs-on-a-laptop-screen-6770610/",
+   "photographer": "Alesia  Kozik"
   }
  },
  "kejsy-avito-almaznaya-rezka-betona": {
@@ -179,6 +296,15 @@
    "pexels_id": 10133578,
    "pexels_url": "https://www.pexels.com/photo/a-man-wearing-orange-helmet-drilling-the-road-10133578/",
    "photographer": "Thom Gonzalez"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-almaznaya-rezka-betona-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Рабочий бурит отверстие в бетонной стене",
+   "pexels_id": 15406536,
+   "pexels_url": "https://www.pexels.com/photo/man-drilling-wall-in-house-15406536/",
+   "photographer": "Lisa Fotios"
   }
  },
  "kejsy-avito-elektrika-pod-klyuch": {
@@ -199,6 +325,15 @@
    "pexels_id": 6196677,
    "pexels_url": "https://www.pexels.com/photo/cleaners-walking-while-holding-cleaning-equipment-6196677/",
    "photographer": "Tima Miroshnichenko"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-elektrika-pod-klyuch-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Монтаж электропроводки в новой квартире",
+   "pexels_id": 7937305,
+   "pexels_url": "https://www.pexels.com/photo/close-up-of-wires-in-outlets-7937305/",
+   "photographer": "Pavel Danilyuk"
   }
  },
  "kejsy-avito-geodezist": {
@@ -219,6 +354,15 @@
    "pexels_id": 32543704,
    "pexels_url": "https://www.pexels.com/photo/aerial-view-of-hercegovac-townscape-in-croatia-32543704/",
    "photographer": "Vladimir Srajber"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-geodezist-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Геодезические измерения на участке",
+   "pexels_id": 5802821,
+   "pexels_url": "https://www.pexels.com/photo/a-man-in-orange-and-yellow-vest-5802821/",
+   "photographer": "Nelson Axigoth"
   }
  },
  "kejsy-avito-mebel-na-zakaz": {
@@ -239,6 +383,15 @@
    "pexels_id": 31567149,
    "pexels_url": "https://www.pexels.com/photo/artisan-in-workshop-restoring-wooden-chair-31567149/",
    "photographer": "josemiguel67bio jose miguel"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-mebel-na-zakaz-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Шоурум с образцами кухонной мебели",
+   "pexels_id": 6969817,
+   "pexels_url": "https://www.pexels.com/photo/modern-white-kitchen-units-in-spacious-showroom-6969817/",
+   "photographer": "Max Vakhtbovych"
   }
  },
  "kejsy-avito-mini-krany": {
@@ -259,6 +412,15 @@
    "pexels_id": 29502218,
    "pexels_url": "https://www.pexels.com/photo/ace-40xw-mobile-crane-close-up-in-faridabad-29502218/",
    "photographer": "Action Construction  Equipment Ltd. - ACE"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-mini-krany-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Мини-кран поднимает материалы на объекте",
+   "pexels_id": 8650017,
+   "pexels_url": "https://www.pexels.com/photo/grayscale-photo-of-cranes-8650017/",
+   "photographer": "Almighty Shilref"
   }
  },
  "kejsy-avito-prodazha-shin-sklad": {
@@ -279,6 +441,15 @@
    "pexels_id": 36398150,
    "pexels_url": "https://www.pexels.com/photo/industrial-warehouse-with-forklift-and-shelving-36398150/",
    "photographer": "Willians Huerta"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-prodazha-shin-sklad-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Шиномонтаж в автосервисе",
+   "pexels_id": 6870331,
+   "pexels_url": "https://www.pexels.com/photo/man-in-blue-coveralls-standing-beside-an-orange-car-checking-on-the-tire-6870331/",
+   "photographer": "Gustavo Fring"
   }
  },
  "kejsy-avito-remont-kvartir-20-gorodov": {
@@ -299,6 +470,15 @@
    "pexels_id": 9963360,
    "pexels_url": "https://www.pexels.com/photo/a-man-reading-the-map-of-moscow-in-komsomolskaya-metro-station-9963360/",
    "photographer": "Plato Terentev"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-remont-kvartir-20-gorodov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Мастер красит стену при ремонте квартиры",
+   "pexels_id": 1669754,
+   "pexels_url": "https://www.pexels.com/photo/person-holding-paint-roller-on-wall-1669754/",
+   "photographer": "Malte Luk"
   }
  },
  "kejsy-avito-remont-stiralnyh-mashin-70-gorodov": {
@@ -319,6 +499,15 @@
    "pexels_id": 681335,
    "pexels_url": "https://www.pexels.com/photo/aerial-photo-of-buildings-and-roads-681335/",
    "photographer": "Aleksejs Bergmanis"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-remont-stiralnyh-mashin-70-gorodov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Мастер с инструментами приехал на вызов",
+   "pexels_id": 13456097,
+   "pexels_url": "https://www.pexels.com/photo/man-delivering-a-package-13456097/",
+   "photographer": "Mizuno K"
   }
  },
  "kejsy-avito-sertifikaciya-dlya-marketplejsov": {
@@ -339,6 +528,15 @@
    "pexels_id": 6407567,
    "pexels_url": "https://www.pexels.com/photo/camera-equipment-boxes-and-packages-6407567/",
    "photographer": "Pavel Danilyuk"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-sertifikaciya-dlya-marketplejsov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Упаковка товаров с маркировкой перед отправкой",
+   "pexels_id": 4440794,
+   "pexels_url": "https://www.pexels.com/photo/delivery-boxes-over-a-carpet-on-the-floor-4440794/",
+   "photographer": "Polina Tankilevitch"
   }
  },
  "kejsy-avito-vskrytie-zamkov-35-gorodov": {
@@ -359,6 +557,15 @@
    "pexels_id": 8828418,
    "pexels_url": "https://www.pexels.com/photo/hand-holding-magnifying-glass-near-pined-map-8828418/",
    "photographer": "Lara Jameson"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-vskrytie-zamkov-35-gorodov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Цилиндр дверного замка крупным планом",
+   "pexels_id": 115642,
+   "pexels_url": "https://www.pexels.com/photo/close-up-gray-hoppe-tubular-key-115642/",
+   "photographer": "George Becker"
   }
  },
  "kejsy-avito-vskrytie-zamkov-konkurentnyj-gorod": {
@@ -379,6 +586,15 @@
    "pexels_id": 8518775,
    "pexels_url": "https://www.pexels.com/photo/traffic-in-city-8518775/",
    "photographer": "Nastya Korenkova"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-vskrytie-zamkov-konkurentnyj-gorod-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Входные двери жилого дома в городе",
+   "pexels_id": 13543609,
+   "pexels_url": "https://www.pexels.com/photo/close-up-of-signs-on-building-door-13543609/",
+   "photographer": "Vadym Alyekseyenko"
   }
  },
  "kejsy-avito-vykup-shin-i-diskov": {
@@ -399,6 +615,15 @@
    "pexels_id": 13694936,
    "pexels_url": "https://www.pexels.com/photo/blue-car-with-open-hood-13694936/",
    "photographer": "Arturo A"
+  },
+  "inline-2": {
+   "file": "/img/kejsy-avito-vykup-shin-i-diskov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Литые диски, сложенные стопкой",
+   "pexels_id": 36542654,
+   "pexels_url": "https://www.pexels.com/photo/close-up-of-a-stylish-car-alloy-wheel-design-36542654/",
+   "photographer": "FBO Media"
   }
  },
  "kejsy": {
@@ -441,6 +666,15 @@
    "pexels_id": 574069,
    "pexels_url": "https://www.pexels.com/photo/laptop-computer-showing-c-application-574069/",
    "photographer": "Lukas Blazek"
+  },
+  "inline-2": {
+   "file": "/img/o-nas-aleksey-borovikov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Рабочее место SEO-специалиста с аналитикой на экране",
+   "pexels_id": 7947638,
+   "pexels_url": "https://www.pexels.com/photo/a-person-using-laptop-7947638/",
+   "photographer": "RDNE Stock project"
   }
  },
  "o-nas-valentin-baranov": {
@@ -461,6 +695,15 @@
    "pexels_id": 6248957,
    "pexels_url": "https://www.pexels.com/photo/photo-of-a-woman-holding-a-paper-with-charts-near-her-laptop-6248957/",
    "photographer": "Kampus Production"
+  },
+  "inline-2": {
+   "file": "/img/o-nas-valentin-baranov-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Статистика объявлений на экране смартфона",
+   "pexels_id": 7693201,
+   "pexels_url": "https://www.pexels.com/photo/a-person-holding-black-android-smartphone-7693201/",
+   "photographer": "Yan Krukau"
   }
  },
  "o-nas": {
@@ -481,6 +724,15 @@
    "pexels_id": 4240610,
    "pexels_url": "https://www.pexels.com/photo/woman-having-video-call-in-home-office-4240610/",
    "photographer": "Ivan S"
+  },
+  "inline-2": {
+   "file": "/img/o-nas-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Удалённая работа двух специалистов над одним проектом",
+   "pexels_id": 39300833,
+   "pexels_url": "https://www.pexels.com/photo/remote-video-call-meeting-in-modern-office-39300833/",
+   "photographer": "Mel Navala"
   }
  },
  "prodvizhenie-na-avito": {
@@ -501,6 +753,24 @@
    "pexels_id": 15977087,
    "pexels_url": "https://www.pexels.com/photo/a-laptop-camera-and-a-graphic-tablet-with-a-pen-lying-on-a-desk-15977087/",
    "photographer": "Kawê  Rodrigues"
+  },
+  "inline-2": {
+   "file": "/img/prodvizhenie-na-avito-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Склад товара растущего бизнеса, который продвигается на нескольких направлениях",
+   "pexels_id": 4487484,
+   "pexels_url": "https://www.pexels.com/photo/men-holding-cardboard-boxes-4487484/",
+   "photographer": "Tiger Lily"
+  },
+  "inline-3": {
+   "file": "/img/prodvizhenie-na-avito-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Клиент звонит по объявлению",
+   "pexels_id": 6281458,
+   "pexels_url": "https://www.pexels.com/photo/a-man-with-a-red-necktie-in-a-phone-call-6281458/",
+   "photographer": "Antoni Shkraba"
   }
  },
  "redizajn-sajta": {
@@ -521,6 +791,24 @@
    "pexels_id": 17018423,
    "pexels_url": "https://www.pexels.com/photo/screen-mockup-tablet-17018423/",
    "photographer": "Jakub Zerdzicki"
+  },
+  "inline-2": {
+   "file": "/img/redizajn-sajta-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Старый монитор как образ устаревшего сайта",
+   "pexels_id": 9140600,
+   "pexels_url": "https://www.pexels.com/photo/close-up-photo-of-old-computers-9140600/",
+   "photographer": "Viktorya  Sergeeva 🫂"
+  },
+  "inline-3": {
+   "file": "/img/redizajn-sajta-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Современный дизайн сайта на большом мониторе",
+   "pexels_id": 326514,
+   "pexels_url": "https://www.pexels.com/photo/full-frame-shot-of-computer-326514/",
+   "photographer": "Tranmautritam"
   }
  },
  "seo-internet-magazin": {
@@ -541,6 +829,24 @@
    "pexels_id": 16675634,
    "pexels_url": "https://www.pexels.com/photo/shoper-e-mail-notification-showed-on-the-mobile-phone-16675634/",
    "photographer": "Shoper .pl"
+  },
+  "inline-2": {
+   "file": "/img/seo-internet-magazin-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Карточка товара интернет-магазина на экране",
+   "pexels_id": 7857496,
+   "pexels_url": "https://www.pexels.com/photo/close-up-of-person-using-a-laptop-and-creating-a-fashion-collection-7857496/",
+   "photographer": "Kampus Production"
+  },
+  "inline-3": {
+   "file": "/img/seo-internet-magazin-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Посылки с заказами интернет-магазина",
+   "pexels_id": 6994108,
+   "pexels_url": "https://www.pexels.com/photo/packages-on-a-porch-6994108/",
+   "photographer": "Kindel Media"
   }
  },
  "seo-optimizaciya": {
@@ -561,6 +867,24 @@
    "pexels_id": 14553705,
    "pexels_url": "https://www.pexels.com/photo/close-up-of-code-on-screen-14553705/",
    "photographer": "Bibek ghosh"
+  },
+  "inline-2": {
+   "file": "/img/seo-optimizaciya-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Анализ отчёта по результатам проверки сайта",
+   "pexels_id": 590022,
+   "pexels_url": "https://www.pexels.com/photo/close-up-photo-of-survey-spreadsheet-590022/",
+   "photographer": "Lukas Blazek"
+  },
+  "inline-3": {
+   "file": "/img/seo-optimizaciya-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Код страницы на экране крупным планом",
+   "pexels_id": 270488,
+   "pexels_url": "https://www.pexels.com/photo/computer-coding-270488/",
+   "photographer": "Pixabay"
   }
  },
  "seo-specialist": {
@@ -581,6 +905,24 @@
    "pexels_id": 5833758,
    "pexels_url": "https://www.pexels.com/photo/man-working-on-a-computer-with-three-monitors-5833758/",
    "photographer": "AlphaTradeZone"
+  },
+  "inline-2": {
+   "file": "/img/seo-specialist-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Проверка критериев выбора специалиста по чек-листу",
+   "pexels_id": 8962463,
+   "pexels_url": "https://www.pexels.com/photo/a-close-up-shot-of-a-printed-checklist-8962463/",
+   "photographer": "Leeloo The First"
+  },
+  "inline-3": {
+   "file": "/img/seo-specialist-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Специалист работает за ноутбуком с заметками",
+   "pexels_id": 5721015,
+   "pexels_url": "https://www.pexels.com/photo/anonymous-ethnic-worker-writing-near-laptop-on-cafe-terrace-5721015/",
+   "photographer": "Anete Lusina"
   }
  },
  "seo-yandex": {
@@ -601,6 +943,24 @@
    "pexels_id": 97080,
    "pexels_url": "https://www.pexels.com/photo/blue-and-green-pie-chart-97080/",
    "photographer": "Negative Space"
+  },
+  "inline-2": {
+   "file": "/img/seo-yandex-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Планирование этапов продвижения сайта на экране",
+   "pexels_id": 7278606,
+   "pexels_url": "https://www.pexels.com/photo/sticky-notes-and-a-laptop-7278606/",
+   "photographer": "Anastasia  Shuraeva"
+  },
+  "inline-3": {
+   "file": "/img/seo-yandex-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Человек ищет услугу в поисковике за ноутбуком",
+   "pexels_id": 12932587,
+   "pexels_url": "https://www.pexels.com/photo/woman-using-a-laptop-at-a-table-12932587/",
+   "photographer": "Atlantic Ambience"
   }
  },
  "seo": {
@@ -621,6 +981,24 @@
    "pexels_id": 17713788,
    "pexels_url": "https://www.pexels.com/photo/conference-of-office-employees-17713788/",
    "photographer": "Walls.io"
+  },
+  "inline-2": {
+   "file": "/img/seo-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "График роста позиций сайта в поисковой выдаче на экране",
+   "pexels_id": 3861957,
+   "pexels_url": "https://www.pexels.com/photo/graph-on-laptop-screen-3861957/",
+   "photographer": "ThisIsEngineering"
+  },
+  "inline-3": {
+   "file": "/img/seo-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Аналитика роста трафика на экране ноутбука",
+   "pexels_id": 669617,
+   "pexels_url": "https://www.pexels.com/photo/paper-on-gray-laptop-669617/",
+   "photographer": "Lukas Blazek"
   }
  },
  "sozdanie-sajtov-lending": {
@@ -641,6 +1019,24 @@
    "pexels_id": 39190576,
    "pexels_url": "https://www.pexels.com/photo/business-meeting-with-analytics-display-39190576/",
    "photographer": "Vitaly Gariev"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-lending-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Макет лендинга на экране ноутбука",
+   "pexels_id": 6611937,
+   "pexels_url": "https://www.pexels.com/photo/close-up-shot-of-a-laptop-6611937/",
+   "photographer": "Tima Miroshnichenko"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-lending-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Посетитель оставляет заявку с телефона",
+   "pexels_id": 34930983,
+   "pexels_url": "https://www.pexels.com/photo/close-up-of-hand-writing-on-a-document-in-black-and-white-34930983/",
+   "photographer": "Bastian Riccardi"
   }
  },
  "sozdanie-sajtov-s-prodvizheniem": {
@@ -661,6 +1057,24 @@
    "pexels_id": 1181263,
    "pexels_url": "https://www.pexels.com/photo/two-women-looking-at-the-code-at-laptop-1181263/",
    "photographer": "Christina Morillo"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-s-prodvizheniem-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Отчёт с метриками по нескольким каналам продвижения",
+   "pexels_id": 38933571,
+   "pexels_url": "https://www.pexels.com/photo/vibrant-financial-data-visualization-chart-38933571/",
+   "photographer": "Rafael Minguet Delgado"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-s-prodvizheniem-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "График роста заявок на экране",
+   "pexels_id": 5717724,
+   "pexels_url": "https://www.pexels.com/photo/silver-laptop-on-the-table-5717724/",
+   "photographer": "https://kaboompics.com/"
   }
  },
  "audit-sajta-tehnicheskij": {
@@ -681,6 +1095,24 @@
    "pexels_id": 12969403,
    "pexels_url": "https://www.pexels.com/photo/close-up-shot-of-a-laptop-computer-12969403/",
    "photographer": "Atlantic Ambience"
+  },
+  "inline-2": {
+   "file": "/img/audit-sajta-tehnicheskij-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Специалист разбирает отчёт по технической диагностике сайта",
+   "pexels_id": 7109313,
+   "pexels_url": "https://www.pexels.com/photo/a-person-holding-a-business-report-7109313/",
+   "photographer": "Tiger Lily"
+  },
+  "inline-3": {
+   "file": "/img/audit-sajta-tehnicheskij-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Серверная инфраструктура, от которой зависит скорость сайта",
+   "pexels_id": 4682189,
+   "pexels_url": "https://www.pexels.com/photo/patch-cables-plugged-in-patch-panel-4682189/",
+   "photographer": "Brett Sayles"
   }
  },
  "audit-sajta-yuzabiliti": {
@@ -701,6 +1133,24 @@
    "pexels_id": 196644,
    "pexels_url": "https://www.pexels.com/photo/notebook-beside-the-iphone-on-table-196644/",
    "photographer": "picjumbo.com"
+  },
+  "inline-2": {
+   "file": "/img/audit-sajta-yuzabiliti-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Проверка сайта на мобильном и десктопе",
+   "pexels_id": 5082579,
+   "pexels_url": "https://www.pexels.com/photo/person-using-a-smartphone-5082579/",
+   "photographer": "cottonbro studio"
+  },
+  "inline-3": {
+   "file": "/img/audit-sajta-yuzabiliti-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Покупатель заполняет форму заказа на смартфоне",
+   "pexels_id": 8938663,
+   "pexels_url": "https://www.pexels.com/photo/hand-holding-a-card-8938663/",
+   "photographer": "Leeloo The First"
   }
  },
  "avito-konsultaciya": {
@@ -721,6 +1171,24 @@
    "pexels_id": 4405384,
    "pexels_url": "https://www.pexels.com/photo/laptop-with-graphic-illustration-on-screen-in-office-4405384/",
    "photographer": "Василь Вовк"
+  },
+  "inline-2": {
+   "file": "/img/avito-konsultaciya-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Объявление на торговой площадке в смартфоне",
+   "pexels_id": 30332467,
+   "pexels_url": "https://www.pexels.com/photo/smartphone-capturing-modern-kitchen-interior-30332467/",
+   "photographer": "Jakub Zerdzicki"
+  },
+  "inline-3": {
+   "file": "/img/avito-konsultaciya-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "План работ после консультации в блокноте",
+   "pexels_id": 131979,
+   "pexels_url": "https://www.pexels.com/photo/orange-and-green-pen-on-graphing-notepad-131979/",
+   "photographer": "freestocks.org"
   }
  },
  "dorabotka-sajta": {
@@ -741,6 +1209,24 @@
    "pexels_id": 4114774,
    "pexels_url": "https://www.pexels.com/photo/iphone-6-connecting-to-internet-4114774/",
    "photographer": "Castorly Stock"
+  },
+  "inline-2": {
+   "file": "/img/dorabotka-sajta-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Разработчик исправляет ошибку на сайте",
+   "pexels_id": 4974912,
+   "pexels_url": "https://www.pexels.com/photo/person-coding-on-a-macbook-pro-4974912/",
+   "photographer": "olia danilevich"
+  },
+  "inline-3": {
+   "file": "/img/dorabotka-sajta-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Сайт на телефоне и ноутбуке после доработки",
+   "pexels_id": 34140,
+   "pexels_url": "https://www.pexels.com/photo/iphone-dark-notebook-pen-34140/",
+   "photographer": "Negative Space"
   }
  },
  "podderzhka-sajta": {
@@ -761,6 +1247,24 @@
    "pexels_id": 19825057,
    "pexels_url": "https://www.pexels.com/photo/close-up-of-a-data-hub-diskstation-19825057/",
    "photographer": "Jakub Zerdzicki"
+  },
+  "inline-2": {
+   "file": "/img/podderzhka-sajta-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Панель мониторинга доступности и трафика сайта",
+   "pexels_id": 10020092,
+   "pexels_url": "https://www.pexels.com/photo/close-up-photo-of-black-digital-tablet-on-brown-surface-10020092/",
+   "photographer": "weCare Media"
+  },
+  "inline-3": {
+   "file": "/img/podderzhka-sajta-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Специалист следит за работой сайта на мониторах",
+   "pexels_id": 37605911,
+   "pexels_url": "https://www.pexels.com/photo/it-technician-working-in-data-center-server-room-37605911/",
+   "photographer": "panumas nikhomkhai"
   }
  },
  "prototip-sajta": {
@@ -781,6 +1285,24 @@
    "pexels_id": 273230,
    "pexels_url": "https://www.pexels.com/photo/pencil-near-white-printer-paper-273230/",
    "photographer": "Pixabay"
+  },
+  "inline-2": {
+   "file": "/img/prototip-sajta-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Эскизы страниц сайта карандашом на бумаге",
+   "pexels_id": 11780441,
+   "pexels_url": "https://www.pexels.com/photo/a-person-holding-black-smartphone-11780441/",
+   "photographer": "Akshar Dave🌻"
+  },
+  "inline-3": {
+   "file": "/img/prototip-sajta-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Схема пути пользователя на стикерах",
+   "pexels_id": 29521529,
+   "pexels_url": "https://www.pexels.com/photo/creative-brainstorming-session-with-sticky-notes-29521529/",
+   "photographer": "Jakub Zerdzicki"
   }
  },
  "seo-google": {
@@ -801,6 +1323,24 @@
    "pexels_id": 37685036,
    "pexels_url": "https://www.pexels.com/photo/businessman-analyzing-data-on-digital-tablet-37685036/",
    "photographer": "Jakub Zerdzicki"
+  },
+  "inline-2": {
+   "file": "/img/seo-google-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Пользователь работает с ИИ-функцией поиска на ноутбуке",
+   "pexels_id": 5614124,
+   "pexels_url": "https://www.pexels.com/photo/a-woman-using-a-laptop-5614124/",
+   "photographer": "Anna Shvets"
+  },
+  "inline-3": {
+   "file": "/img/seo-google-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Поисковый запрос на экране ноутбука",
+   "pexels_id": 6961857,
+   "pexels_url": "https://www.pexels.com/photo/a-person-using-a-laptop-6961857/",
+   "photographer": "Firmbee.com"
   }
  },
  "seo-novyj-sajt": {
@@ -821,6 +1361,24 @@
    "pexels_id": 1604024,
    "pexels_url": "https://www.pexels.com/photo/man-in-front-of-laptop-1604024/",
    "photographer": "Vlad Bagacian"
+  },
+  "inline-2": {
+   "file": "/img/seo-novyj-sajt-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Сравнение сайта до и после редизайна на экране",
+   "pexels_id": 1581634,
+   "pexels_url": "https://www.pexels.com/photo/two-turned-on-smartphone-displaying-pexels-application-1581634/",
+   "photographer": "Muffin Creatives"
+  },
+  "inline-3": {
+   "file": "/img/seo-novyj-sajt-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Команда запускает новый проект",
+   "pexels_id": 7988659,
+   "pexels_url": "https://www.pexels.com/photo/employees-celebrating-together-7988659/",
+   "photographer": "Mikhail Nilov"
   }
  },
  "seo-regiony": {
@@ -841,6 +1399,24 @@
    "pexels_id": 17724743,
    "pexels_url": "https://www.pexels.com/photo/man-and-woman-standing-by-whiteboard-17724743/",
    "photographer": "Walls.io"
+  },
+  "inline-2": {
+   "file": "/img/seo-regiony-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Специалист анализирует несколько страниц сайта на экране",
+   "pexels_id": 5831343,
+   "pexels_url": "https://www.pexels.com/photo/men-analyzing-the-line-graph-on-the-monitor-of-a-computer-5831343/",
+   "photographer": "AlphaTradeZone"
+  },
+  "inline-3": {
+   "file": "/img/seo-regiony-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Трасса между городами с высоты",
+   "pexels_id": 29119528,
+   "pexels_url": "https://www.pexels.com/photo/aerial-view-of-a-busy-highway-in-cincinnati-ohio-29119528/",
+   "photographer": "Taylor Thompson"
   }
  },
  "seo-sajt-uslug": {
@@ -861,6 +1437,24 @@
    "pexels_id": 7658369,
    "pexels_url": "https://www.pexels.com/photo/a-man-with-headphones-sitting-at-a-desk-with-computer-writing-on-a-notebook-7658369/",
    "photographer": "Pavel Danilyuk"
+  },
+  "inline-2": {
+   "file": "/img/seo-sajt-uslug-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Владелец сервисного бизнеса проверяет заявки с разных каналов",
+   "pexels_id": 39219460,
+   "pexels_url": "https://www.pexels.com/photo/young-man-using-smartphone-in-modern-office-39219460/",
+   "photographer": "Vitaly Gariev"
+  },
+  "inline-3": {
+   "file": "/img/seo-sajt-uslug-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Мастер обсуждает заказ с клиентом",
+   "pexels_id": 8292769,
+   "pexels_url": "https://www.pexels.com/photo/man-and-woman-having-a-conversation-8292769/",
+   "photographer": "RDNE Stock project"
   }
  },
  "sozdanie-sajtov-dlya-malogo-biznesa": {
@@ -881,6 +1475,24 @@
    "pexels_id": 10020052,
    "pexels_url": "https://www.pexels.com/photo/a-person-holding-black-digital-tablet-10020052/",
    "photographer": "weCare Media"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-dlya-malogo-biznesa-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Владелец небольшого кафе с планшетом",
+   "pexels_id": 6205520,
+   "pexels_url": "https://www.pexels.com/photo/smiling-employee-with-tablet-at-counter-in-bakery-6205520/",
+   "photographer": "Tim Douglas"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-dlya-malogo-biznesa-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Владелец магазина принимает заказ со смартфона",
+   "pexels_id": 8475194,
+   "pexels_url": "https://www.pexels.com/photo/man-in-a-phone-call-reading-a-note-8475194/",
+   "photographer": "Kampus Production"
   }
  },
  "sozdanie-sajtov-korporativnyj-sajt": {
@@ -901,6 +1513,24 @@
    "pexels_id": 5990030,
    "pexels_url": "https://www.pexels.com/photo/staff-meeting-at-the-office-5990030/",
    "photographer": "cottonbro studio"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-korporativnyj-sajt-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Встреча команды компании у экрана с презентацией",
+   "pexels_id": 15141492,
+   "pexels_url": "https://www.pexels.com/photo/people-during-conference-15141492/",
+   "photographer": "Matheus Bertelli"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-korporativnyj-sajt-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Корпоративный сайт на мониторе в офисе",
+   "pexels_id": 326503,
+   "pexels_url": "https://www.pexels.com/photo/two-imac-s-with-keyboard-and-phones-on-desk-326503/",
+   "photographer": "Tranmautritam"
   }
  },
  "sozdanie-sajtov-na-nejrosetyah": {
@@ -921,6 +1551,24 @@
    "pexels_id": 31120870,
    "pexels_url": "https://www.pexels.com/photo/two-female-architects-reviewing-blueprints-31120870/",
    "photographer": "Yusuf Çelik"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-na-nejrosetyah-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Готовый сайт и редактор кода на экране ноутбука",
+   "pexels_id": 37085302,
+   "pexels_url": "https://www.pexels.com/photo/remote-work-with-laptop-on-rooftop-in-urban-setting-37085302/",
+   "photographer": "Meet Patel"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-na-nejrosetyah-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Разработчик работает с ИИ-ассистентом",
+   "pexels_id": 34804018,
+   "pexels_url": "https://www.pexels.com/photo/ai-assisted-code-debugging-on-screen-display-34804018/",
+   "photographer": "Daniil Komov"
   }
  },
  "sozdanie-sajtov-sajt-vizitka": {
@@ -941,6 +1589,24 @@
    "pexels_id": 7667442,
    "pexels_url": "https://www.pexels.com/photo/person-doing-online-shopping-7667442/",
    "photographer": "MART  PRODUCTION"
+  },
+  "inline-2": {
+   "file": "/img/sozdanie-sajtov-sajt-vizitka-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Разработчик собирает сайт-визитку за компьютером",
+   "pexels_id": 16129703,
+   "pexels_url": "https://www.pexels.com/photo/man-coding-on-computers-sitting-at-desk-16129703/",
+   "photographer": "Lisa Fotios"
+  },
+  "inline-3": {
+   "file": "/img/sozdanie-sajtov-sajt-vizitka-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Визитка и смартфон с сайтом на столе",
+   "pexels_id": 1420702,
+   "pexels_url": "https://www.pexels.com/photo/top-view-photo-of-keyboard-near-wallet-and-mobile-phone-1420702/",
+   "photographer": "Lukas Blazek"
   }
  },
  "kontent-dlya-sajta": {
@@ -961,6 +1627,24 @@
    "pexels_id": 5185074,
    "pexels_url": "https://www.pexels.com/photo/crumpled-papers-and-sticky-notes-5185074/",
    "photographer": "cottonbro studio"
+  },
+  "inline-2": {
+   "file": "/img/kontent-dlya-sajta-inline-2.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Редактор проверяет и вычитывает готовый текст",
+   "pexels_id": 7968063,
+   "pexels_url": "https://www.pexels.com/photo/a-woman-proof-reading-a-composition-7968063/",
+   "photographer": "Ron Lach"
+  },
+  "inline-3": {
+   "file": "/img/kontent-dlya-sajta-inline-3.jpg",
+   "width": 1200,
+   "height": 800,
+   "alt": "Читатель изучает статью на планшете",
+   "pexels_id": 17801344,
+   "pexels_url": "https://www.pexels.com/photo/hands-touching-the-screen-of-a-tablet-17801344/",
+   "photographer": "iam hogir"
   }
  }
 }

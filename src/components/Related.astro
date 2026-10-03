@@ -6,6 +6,6 @@ const { items = [] } = Astro.props;
 {items.length > 0 && (
   <section aria-labelledby="rel-title">
     <h2 id="rel-title" class="section-title" style="font-size:clamp(40px,5vw,72px)">Смотрите также</h2>
-    <div class="related-grid">{items.map((r) => <a class="related-card" href={withBase(r.url)}><b>{r.title}</b>{r.text && <span>{r.text}</span>}</a>)}</div>
+    <div class="related-grid cards" data-count={items.length}>{items.map((r) => <a class="related-card" href={withBase(r.url)}><b>{r.title}</b>{r.text && <span>{r.text}</span>}</a>)}</div>
   </section>
 )}

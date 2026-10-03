@@ -7,7 +7,7 @@
     "sync": "node scripts/sync-content.mjs",
     "images": "node scripts/fetch-images.mjs",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build --force",
     "preview": "astro preview",
     "check:content": "node scripts/check-content.mjs",
     "qa": "node scripts/qa-dist.mjs"

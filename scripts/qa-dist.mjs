@@ -28,7 +28,8 @@ for (const f of files) {
   if (!/name="robots" content="noindex/.test(h)) issues.push('нет noindex на превью');
   const ld = [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
   const faqLd = ld.flatMap((g) => g['@graph'] || []).find((n) => n['@type'] === 'FAQPage');
-  const det = [...h.matchAll(/<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>\s*<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => [strip(m[1]), strip(m[2])]);
+  const faqHtml = (h.match(/aria-labelledby="faq-title"[\s\S]*?<\/section>/) || [''])[0];
+  const det = [...faqHtml.matchAll(/<details[^>]*>\s*<summary[^>]*>([\s\S]*?)<\/summary>\s*<p[^>]*>([\s\S]*?)<\/p>/g)].map((m) => [strip(m[1]), strip(m[2])]);
   if (faqLd) {
     if (faqLd.mainEntity.length !== det.length) issues.push(`FAQ HTML ${det.length} ≠ JSON-LD ${faqLd.mainEntity.length}`);
     faqLd.mainEntity.forEach((q, i) => { if (det[i] && (det[i][0] !== q.name || det[i][1] !== q.acceptedAnswer.text)) issues.push(`FAQ #${i + 1} расходится`); });
