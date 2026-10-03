@@ -1,0 +1,6 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+const d = { url: '/404/', slug: '404', type: 'page', title: 'Страница не найдена | Биба и Боба', description: 'Такой страницы нет. Вернитесь на главную или откройте услуги агентства Биба и Боба.', h1: 'Сбились с орбиты', lede: 'Такой страницы нет. Биба и Боба искали её вдвоём.', hero_cta: { primary: { label: 'На главную', href: '/' }, secondary: { label: 'Кейсы', href: '/kejsy/' } }, author: 'both' };
+---
+<Base d={d}><PageHero slot="hero" d={d} /></Base>

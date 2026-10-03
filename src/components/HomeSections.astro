@@ -1,0 +1,47 @@
+---
+import Faq from './Faq.astro';
+import { getCollection } from 'astro:content';
+import { withBase } from '../lib/site.mjs';
+interface Props { d: any }
+const { d } = Astro.props;
+const cases = (await getCollection('pages')).filter((p) => p.data.type === 'case').map((p) => p.data);
+const featured = ['C-148', 'C-250', 'C-280'].map((id) => cases.find((c) => c.case?.id === id)).filter(Boolean);
+const rest = cases.filter((c) => !featured.includes(c)).slice(0, 6);
+---
+<section class="wrap" style="padding-block:clamp(72px,10vw,150px) clamp(40px,6vw,80px)">
+  <div class="kicker"><span>[01]</span><span><strong>Знакомьтесь</strong></span></div>
+  <h2 class="section-title">{d.about_title || 'Два практика с 2018 года. Три канала заявок.'}</h2>
+  <div class="hero-row">
+    <p class="lede" style="font-size:clamp(18px,1.6vw,22px)">{d.about_text || d.lede}</p>
+    <div class="hero-ctas"><a class="pill pill-light" href={withBase('/o-nas/')}><span class="dot"></span>О нас</a><a class="pill pill-glass" href={withBase('/audit-besplatno/')}>Бесплатный аудит</a></div>
+  </div>
+</section>
+
+<section class="wrap" style="padding-block:clamp(40px,6vw,90px)">
+  <div class="kicker"><span>[02]</span><span><strong>Кейсы Авито с цифрами из кабинета</strong></span></div>
+  <h2 class="section-title">Наши проекты</h2>
+  <div class="case-grid" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))">
+    {featured.map((c) => (
+      <a class="case-card" href={withBase(c.url)} style="min-height:340px;align-content:end">
+        <span class="case-niche">{c.case.niche}</span>
+        <span style="font:400 clamp(64px,8vw,120px)/.85 var(--display)">{c.case.contacts}</span>
+        <span class="case-metric">обращений за месяц · {c.case.contact_price} за обращение</span>
+        {c.case.deltas && <span class="case-delta">{c.case.deltas}</span>}
+        <span class="case-more">Читать кейс</span>
+      </a>
+    ))}
+  </div>
+  {rest.length > 0 && (
+    <div class="case-grid" style="margin-top:16px">
+      {rest.map((c) => <a class="case-card" href={withBase(c.url)}><span class="case-niche">{c.case.niche}</span><span class="case-metric"><b>{c.case.contacts}</b> обращений</span><span class="case-metric"><b>{c.case.contact_price}</b> за обращение</span><span class="case-more">Читать кейс</span></a>)}
+    </div>
+  )}
+  <p style="margin-top:28px"><a class="pill pill-glass" href={withBase('/kejsy/')}>Все кейсы</a></p>
+</section>
+
+<section class="wrap" style="padding-block:clamp(40px,6vw,90px)">
+  <div class="kicker"><span>[03]</span><span><strong>Чем мы занимаемся</strong></span></div>
+  <div class="prose" style="max-width:820px"><slot /></div>
+</section>
+
+<section class="wrap" style="padding-block:clamp(40px,6vw,90px);max-width:1100px;margin-inline:auto"><Faq items={d.faq || []} /></section>

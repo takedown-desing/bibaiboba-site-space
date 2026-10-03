@@ -1,0 +1,69 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import HomeExperience from '../components/HomeExperience.astro';
+import HomeSections from '../components/HomeSections.astro';
+import Faq from '../components/Faq.astro';
+import Related from '../components/Related.astro';
+import AuthorRow from '../components/AuthorRow.astro';
+import LeadForm from '../components/LeadForm.astro';
+import images from '../data/images.json';
+import { withBase } from '../lib/site.mjs';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((entry) => ({ params: { slug: entry.data.url === '/' ? undefined : entry.data.url.replace(/^\/|\/$/g, '') }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const d = entry.data;
+const { Content, headings } = await render(entry);
+const img = (images as any)[d.slug] || {};
+const toc = headings.filter((h) => h.depth === 2);
+const isForm = ['lead-form', 'form', 'contact'].includes(d.type);
+const formKind = d.type === 'lead-form' ? 'audit' : d.type === 'form' ? 'brief' : 'contact';
+const allCases = d.type === 'hub' ? (await getCollection('pages')).filter((p) => p.data.type === 'case').map((p) => p.data) : [];
+const hd = d.type === 'case' && d.case && !d.highlights?.length ? { ...d, highlights: [
+  { value: d.case.contacts, label: 'обращений за месяц' }, { value: d.case.contact_price, label: 'цена обращения' },
+  { value: d.case.views, label: 'просмотров' }, { value: d.case.spend, label: 'затраты на продвижение' } ] } : d;
+---
+<Base d={d} home={d.type === 'home'}>
+  {d.type === 'home' ? <HomeExperience slot="hero" d={d} /> : <PageHero slot="hero" d={hd} />}
+  {d.type === 'home' ? <HomeSections d={d}><Content /></HomeSections> : (
+    <div class="wrap">
+      <div class={`content-grid ${toc.length > 2 && !isForm ? 'has-aside' : ''}`}>
+        <article class="prose">
+          <Content />
+          {img['inline-1'] && <figure style="margin-top:2.4em"><img src={withBase(img['inline-1'].file)} alt={img['inline-1'].alt} width="1200" height="800" loading="lazy" decoding="async" style="width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:36px;filter:grayscale(.25) contrast(1.05)" /></figure>}
+          {allCases.length > 0 && (
+            <div class="case-grid" style="margin-top:2.4em">
+              {allCases.map((c) => <a class="case-card" href={withBase(c.url)}><span class="case-niche">{c.case?.niche}</span><span class="case-metric"><b>{c.case?.contacts}</b> обращений</span><span class="case-metric"><b>{c.case?.contact_price}</b> за обращение</span>{c.case?.deltas && <span class="case-delta">{c.case.deltas}</span>}<span class="case-more">Читать кейс</span></a>)}
+            </div>
+          )}
+        </article>
+        {isForm ? <div id="form" style="scroll-margin-top:24px"><LeadForm kind={formKind} title={formKind === 'audit' ? 'Заявка на аудит' : formKind === 'brief' ? 'Бриф на проект' : 'Написать нам'} /></div> : toc.length > 2 && (
+          <aside>
+            <div class="aside-sticky">
+              <nav class="toc" aria-label="Содержание страницы"><p>На этой странице</p><ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}{d.faq?.length > 0 && <li><a href="#faq-title">Частые вопросы</a></li>}</ol></nav>
+              <div class="aside-cta"><p>Проверим ваш сайт или профиль Авито бесплатно</p><a class="pill pill-light" href={withBase('/audit-besplatno/')}><span class="dot"></span>Получить аудит</a></div>
+            </div>
+          </aside>
+        )}
+      </div>
+      <div style="display:grid;gap:clamp(56px,7vw,100px);padding-bottom:clamp(56px,8vw,110px);max-width:1100px">
+        {d.type !== 'legal' && <AuthorRow author={d.author} date={d.date_modified} />}
+        <Faq items={d.faq || []} />
+        <Related items={d.related || []} />
+      </div>
+    </div>
+  )}
+  {d.type !== 'legal' && !isForm && (
+    <section class="end-cta">
+      <div class="wrap">
+        <div class="kicker" style="max-width:600px"><span>Далее:</span><span><strong>бесплатный аудит</strong></span></div>
+        <p class="section-title" style="margin:0">Покажем, где теряются заявки</p>
+        <div class="hero-ctas"><a class="pill pill-light" href={withBase('/audit-besplatno/')}><span class="dot"></span>Получить аудит</a><a class="pill pill-glass" href={withBase('/brif/')}>Заполнить бриф</a></div>
+      </div>
+    </section>
+  )}
+</Base>

@@ -1,0 +1,21 @@
+<div class="custom-cursor" aria-hidden="true"><span class="cursor-orbit"></span><span class="cursor-dot"></span><span class="cursor-label">Перейти</span></div>
+<script>
+  // Курсор из промта: точка 12px + кольцо 36px с инерцией 0.2; над порталом кольцо растёт и появляется подпись.
+  if (matchMedia('(pointer: fine)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('has-cursor');
+    const c = document.querySelector('.custom-cursor');
+    const dot = c.querySelector('.cursor-dot'), orbit = c.querySelector('.cursor-orbit'), label = c.querySelector('.cursor-label');
+    let x = 0, y = 0, ox = 0, oy = 0;
+    addEventListener('pointermove', (e) => { x = e.clientX; y = e.clientY; c.classList.add('is-visible'); }, { passive: true });
+    document.addEventListener('mouseleave', () => c.classList.remove('is-visible'));
+    const loop = () => { ox += (x - ox) * .2; oy += (y - oy) * .2; dot.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`; orbit.style.left = ox + 'px'; orbit.style.top = oy + 'px'; label.style.left = ox + 'px'; label.style.top = oy + 26 + 'px'; requestAnimationFrame(loop); };
+    loop();
+    const portal = document.getElementById('portal');
+    portal?.addEventListener('pointerenter', () => { label.textContent = 'Далее'; c.classList.add('is-enter'); });
+    portal?.addEventListener('pointerleave', () => c.classList.remove('is-enter'));
+    document.querySelectorAll('.case-card, .related-card').forEach((el) => {
+      el.addEventListener('pointerenter', () => { label.textContent = 'Открыть'; c.classList.add('is-enter'); });
+      el.addEventListener('pointerleave', () => c.classList.remove('is-enter'));
+    });
+  }
+</script>

@@ -1,0 +1,357 @@
+---
+// Первый экран главной по промту 2 «Planet Jumping». Планеты = три канала заявок агентства.
+// Отступление от промта: экран не на весь документ, а первая секция страницы (дальше идёт контент),
+// поэтому canvas и логотип позиционируются внутри .experience, а не fixed.
+import { withBase } from '../lib/site.mjs';
+interface Props { d: any }
+const { d } = Astro.props;
+const BASE = 'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P';
+const MEDIA = {
+  MARS_BG: `${BASE}/3c83091e-4046-4fd6-adbb-2edb728be79a.mp4`,
+  TO_EARTH: `${BASE}/fc3ded42-e845-41f3-a830-5cab512d79cd.mp4`,
+  TO_VENUS: `${BASE}/b30f64d9-1637-477a-83df-d0fc6461a422.mp4`,
+  TO_MARS: `${BASE}/5fc5651c-3b5d-4171-b507-87f7e635d1b4.mp4`,
+  MERCURY: `${BASE}/d6fb8b6b-c15e-4aaa-9cf7-45bbb5e33372.jpg`,
+};
+const ch = d.channels || [];
+const pick = (i, fallback) => ch[i] || fallback;
+const states = {
+  search: { key: 'search', name: pick(0, {}).name || 'Поиск', url: pick(0, {}).url || '/seo/', next: pick(1, {}).name || 'Нейросети', number: '[02]', portal: MEDIA.TO_EARTH, background: 'search-background', facts: (pick(0, {}).facts || []).map((f) => [f.k, f.v]) },
+  neuro: { key: 'neuro', name: pick(1, {}).name || 'Нейросети', url: pick(1, {}).url || '/geo/', next: pick(2, {}).name || 'Авито', number: '[03]', portal: MEDIA.TO_VENUS, background: 'neuro-background', facts: (pick(1, {}).facts || []).map((f) => [f.k, f.v]) },
+  avito: { key: 'avito', name: pick(2, {}).name || 'Авито', url: pick(2, {}).url || '/avitolog/', next: 'Аудит', number: '[04]', image: MEDIA.MERCURY, nextUrl: '/audit-besplatno/', background: 'avito-background', facts: (pick(2, {}).facts || []).map((f) => [f.k, f.v]) },
+};
+const planets = [
+  ['Поиск', '/seo/'], ['Нейросети', '/geo/'], ['Авито', '/avitolog/'], ['Аудит', '/audit-sajta/'],
+  ['Сайты', '/sozdanie-sajtov/'], ['Редизайн', '/redizajn-sajta/'], ['Поддержка', '/podderzhka-sajta/'], ['Тексты', '/kontent-dlya-sajta/'],
+].map(([n, u]) => [n, withBase(u)]);
+const config = { states, planets, base: withBase('/') };
+---
+<section class="experience" id="experience" data-planet="search" aria-label="Три канала заявок">
+  <div class="backgrounds" aria-hidden="true">
+    <video id="search-background" class="background is-visible" src={MEDIA.MARS_BG} muted playsinline preload="auto"></video>
+    <video id="neuro-background" class="background" src={MEDIA.TO_EARTH} muted playsinline preload="auto"></video>
+    <video id="avito-background" class="background" src={MEDIA.TO_VENUS} muted playsinline preload="auto"></video>
+  </div>
+  <div class="preloader" id="preloader" aria-label="Загрузка">
+    <video id="preloader-video" src={MEDIA.TO_MARS} muted playsinline preload="auto"></video>
+    <div class="preloader-shade"></div>
+  </div>
+  <svg class="floating-logo" id="floating-logo" viewBox="0 0 60 58" role="img" aria-label="Биба и Боба"><circle cx="23" cy="31" r="19" fill="#fff"/><circle cx="44" cy="18" r="11" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+  <div class="preloader-count" id="preloader-count" aria-live="polite"><span id="preloader-value">0</span><span class="percent">%</span></div>
+  <canvas id="scene-canvas" class="scene-canvas" aria-hidden="true"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+
+  <div class="exp-intro chrome">
+    <h1 class="exp-h1">{d.h1}</h1>
+  </div>
+
+  <aside class="planet-list chrome" aria-label="Направления"></aside>
+
+  <canvas id="portal-canvas" class="portal-canvas" aria-hidden="true"></canvas>
+  <section class="portal-wrap chrome" aria-label="Следующий канал">
+    <div class="portal-heading">
+      <span>Далее:</span>
+      <span><span id="next-number">[02]</span> <strong id="next-name">Нейросети</strong></span>
+    </div>
+    <button class="portal" id="portal" type="button" aria-label="Перейти к каналу Нейросети">
+      <video id="portal-video" src={MEDIA.TO_EARTH} muted playsinline preload="auto"></video>
+      <img id="portal-image" src={MEDIA.MERCURY} alt="" />
+    </button>
+  </section>
+
+  <section class="planet-content chrome" aria-live="polite">
+    <p class="planet-title display" id="planet-title">ПОИСК</p>
+    <div class="planet-side">
+      <dl id="facts"></dl>
+      <a class="pill pill-light planet-link" id="planet-link" href={withBase('/seo/')}><span class="dot"></span><span id="planet-link-text">Подробнее о канале</span></a>
+    </div>
+  </section>
+
+  <div class="transition-layer" aria-hidden="true"><video id="transition-video" muted playsinline></video></div>
+  <div class="loading" aria-hidden="true">Подготовка орбиты…</div>
+</section>
+<script is:inline type="application/json" id="exp-config" set:html={JSON.stringify(config)}></script>
+
+<style is:global>
+  .experience { position: relative; width: 100%; height: 100svh; min-height: 540px; overflow: hidden; background: #0a0908; }
+  .backgrounds, .background, .shade, .transition-layer, .transition-layer video { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .background { object-fit: cover; opacity: 0; transition: opacity .8s ease; }
+  .background.is-visible { opacity: 1; }
+  .shade { z-index: 1; background: linear-gradient(to bottom, transparent 52%, rgba(0,0,0,.88) 100%); pointer-events: none; }
+  .chrome { position: absolute; z-index: 4; transition: opacity .45s ease, filter .45s ease; }
+  .experience.is-transitioning .chrome { opacity: 0; filter: blur(8px); pointer-events: none; }
+  .exp-intro { left: clamp(18px, 1.95vw, 28px); top: calc(clamp(18px, 3.1vh, 28px) + 64px); max-width: min(520px, 70vw); }
+  .exp-h1 { margin: 0; font: 400 clamp(16px, 1.5vw, 21px)/1.3 var(--sans); color: rgba(255,255,255,.92); text-wrap: balance; }
+  .planet-list { left: clamp(18px, 1.95vw, 28px); top: 50%; transform: translateY(-43%); display: flex; flex-direction: column; gap: 6px; font-size: 16px; }
+  .planet-item { display: flex; align-items: center; min-height: 20px; color: #fff; text-decoration: none; }
+  .planet-item:hover { opacity: .75; }
+  .planet-item.active { font-size: 18px; font-weight: 700; gap: 8px; }
+  .planet-item.active::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: #fff; }
+  .portal-wrap { left: 50%; top: 50%; width: min(320px, 31vw); transform: translate(-50%, -54%); perspective: none; }
+  .portal-heading { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; font-size: 16px; opacity: 0; }
+  .portal-heading strong { font-size: 18px; margin-left: 8px; }
+  .portal { position: relative; display: block; width: 100%; aspect-ratio: 320/350; padding: 0; overflow: visible; border: 0; border-radius: 90px; background: transparent; cursor: pointer; box-shadow: none; transform: none !important; }
+  .portal video, .portal img { visibility: hidden; position: absolute; width: 1px; height: 1px; pointer-events: none; }
+  .portal-canvas { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; pointer-events: none; }
+  .planet-content { left: clamp(28px, 4vw, 58px); right: clamp(28px, 3vw, 44px); bottom: clamp(24px, 3vh, 30px); display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+  .planet-title { font-size: clamp(110px, 18vw, 280px); line-height: .78; margin: 0 0 -.04em; transform: translateX(-12px); opacity: 0; white-space: nowrap; flex: 1 1 auto; min-width: 0; }
+  .planet-side { flex: none; }
+  .planet-side { display: grid; gap: 16px; justify-items: start; }
+  .planet-content dl { width: min(447px, 34vw); margin: 0; font-size: 16px; }
+  .planet-content .fact { opacity: 0; animation: none; }
+  .planet-link { height: 40px; font-size: 14px; opacity: 0; }
+  .transition-layer { display: none; } .scene-canvas { display: none; }
+  .loading { position: absolute; z-index: 12; left: 50%; bottom: 30px; transform: translateX(-50%); opacity: 0; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; transition: opacity .2s; }
+  .experience.is-loading .loading { opacity: .8; }
+  .experience.is-transitioning .planet-list, .experience.is-transitioning .exp-intro { opacity: 1; filter: none; pointer-events: auto; }
+  .experience.is-transitioning .shade { opacity: 1; }
+  .experience.is-committing .background { transition: none !important; }
+  .preloader { position: absolute; inset: 0; z-index: 20; background: #000; overflow: hidden; }
+  .preloader video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .preloader-shade { position: absolute; inset: auto 0 0; height: 35%; background: linear-gradient(to bottom, transparent, #000); }
+  .preloader.is-background { z-index: 0; }
+  .preloader.is-background .preloader-shade { opacity: 0; }
+  .floating-logo { position: absolute; z-index: 22; left: 50%; top: 50%; width: 59px; height: 58px; transform: translate(-50%, -50%); will-change: left, top, width, height, transform;
+    transition: left 2s cubic-bezier(.16,1,.3,1), top 2s cubic-bezier(.16,1,.3,1), width 2s cubic-bezier(.16,1,.3,1), height 2s cubic-bezier(.16,1,.3,1), transform 2s cubic-bezier(.16,1,.3,1); }
+  .floating-logo.is-docked { left: clamp(18px, 1.95vw, 28px); top: clamp(21px, calc(3.1vh + 3px), 31px); width: 37px; height: 36px; transform: none; }
+  .floating-logo.is-settled { z-index: 31; }
+  .preloader-count { position: absolute; z-index: 22; left: 50%; bottom: clamp(22px, 3.1vh, 28px); display: flex; align-items: flex-end; gap: 4px; transform: translateX(-50%); line-height: 1; }
+  .preloader-count > span:first-child { font-family: 'Inter', 'SF Pro', Arial, sans-serif; font-size: 64px; font-weight: 100; }
+  .preloader-count .percent { font-size: 24px; padding-bottom: 4px; }
+  .preloader-count.is-leaving { animation: preload-count-out .75s cubic-bezier(.22,1,.36,1) both; }
+  body.page-home:not(.intro-ready) .site-header, body.page-home:not(.intro-ready) .planet-list, body.page-home:not(.intro-ready) .exp-intro { opacity: 0; }
+  body.page-home .site-header .brand-mark { visibility: hidden; }
+  .intro-ready .site-header { animation: reveal-down .9s cubic-bezier(.22,1,.36,1) .1s both; }
+  .intro-ready .exp-intro { animation: reveal-down .9s cubic-bezier(.22,1,.36,1) .35s both; }
+  .intro-ready .planet-list { animation: reveal-side .9s cubic-bezier(.22,1,.36,1) .65s both; }
+  .content-revealing .planet-title { animation: planet-title-rise 1.05s cubic-bezier(.16,1,.3,1) both; }
+  .content-revealing .planet-content .fact { animation: fact-rise .72s cubic-bezier(.22,1,.36,1) both; }
+  .content-revealing .planet-content .fact:nth-child(1) { animation-delay: .52s; } .content-revealing .planet-content .fact:nth-child(2) { animation-delay: .68s; }
+  .content-revealing .planet-content .fact:nth-child(3) { animation-delay: .84s; } .content-revealing .planet-content .fact:nth-child(4) { animation-delay: 1s; }
+  .content-revealing .planet-link { animation: fact-rise .72s cubic-bezier(.22,1,.36,1) 1.12s both; }
+  .mask-revealing .portal-heading { animation: portal-caption .85s cubic-bezier(.22,1,.36,1) both; }
+  .planet-list.is-switching .planet-item { animation: menu-row .58s cubic-bezier(.22,1,.36,1) both; }
+  .planet-list.is-switching .planet-item:nth-child(1) { animation-delay: .02s } .planet-list.is-switching .planet-item:nth-child(2) { animation-delay: .05s }
+  .planet-list.is-switching .planet-item:nth-child(3) { animation-delay: .08s } .planet-list.is-switching .planet-item:nth-child(4) { animation-delay: .11s }
+  .planet-list.is-switching .planet-item:nth-child(5) { animation-delay: .14s } .planet-list.is-switching .planet-item:nth-child(6) { animation-delay: .17s }
+  .planet-list.is-switching .planet-item:nth-child(7) { animation-delay: .2s } .planet-list.is-switching .planet-item:nth-child(8) { animation-delay: .23s }
+  .planet-list.is-switching .planet-item.active::before { animation: active-dot .55s cubic-bezier(.22,1,.36,1) .18s both; }
+  @keyframes planet-title-rise { from { opacity: 0; filter: blur(12px); transform: translate(-12px, 42px); } to { opacity: 1; filter: blur(0); transform: translate(-12px, 0); } }
+  @media (max-width: 900px) {
+    .portal-wrap { width: min(300px, 48vw); }
+    .planet-title { font-size: clamp(90px, 20vw, 170px); }
+    .planet-content dl { width: 43vw; }
+    .planet-content .fact { grid-template-columns: 110px 1fr; }
+    .planet-list { font-size: 14px; } .planet-item.active { font-size: 16px; }
+  }
+  @media (max-width: 640px) {
+    .experience { min-height: 640px; }
+    .planet-list { display: none; }
+    .portal-wrap { top: 46%; width: min(240px, 62vw); }
+    .planet-content { left: 18px; right: 18px; bottom: 18px; display: block; }
+    .planet-title { font-size: clamp(64px, 19vw, 120px); margin-bottom: 16px; }
+    .planet-content dl { width: 100%; font-size: 13px; }
+    .planet-content .fact { grid-template-columns: 92px 1fr; padding: 5px 0; }
+    .portal-heading { font-size: 14px; } .portal-heading strong { font-size: 16px; }
+    .portal { border-radius: 70px; }
+    .exp-intro { top: calc(clamp(18px, 3.1vh, 28px) + 54px); }
+  }
+</style>
+
+<script>
+  type State = { key: string; name: string; url: string; next: string; number: string; portal?: string; image?: string; nextUrl?: string; background: string; facts: [string, string][] };
+  const cfg = JSON.parse(document.getElementById('exp-config')!.textContent!);
+  const states: Record<string, State> = cfg.states;
+  const order = ['search', 'neuro', 'avito'];
+  const $ = (id: string) => document.getElementById(id)!;
+  const exp = $('experience');
+  const preloader = $('preloader');
+  const preVideo = $('preloader-video') as HTMLVideoElement;
+  const preValue = $('preloader-value');
+  const preCount = $('preloader-count');
+  const logo = $('floating-logo');
+  const canvas = $('portal-canvas') as HTMLCanvasElement;
+  const ctx = canvas.getContext('2d')!;
+  const scene = $('scene-canvas') as HTMLCanvasElement;
+  const sctx = scene.getContext('2d')!;
+  const portal = $('portal') as HTMLButtonElement;
+  const portalVideo = $('portal-video') as HTMLVideoElement;
+  const portalImage = $('portal-image') as HTMLImageElement;
+  const transVideo = $('transition-video') as HTMLVideoElement;
+  const list = document.querySelector('.planet-list') as HTMLElement;
+  const facts = $('facts');
+  const title = $('planet-title');
+  const link = $('planet-link') as HTMLAnchorElement;
+  const linkText = $('planet-link-text');
+
+  let current = 'search', busy = false, firstRender = true;
+  let rotX = 0, rotY = 0, targetX = 0, targetY = 0, last = performance.now();
+  let expansion = 0, maskScale = 0, canvasOpacity = 1, transitionActive = false, frozen = false;
+  let W = 0, H = 0;
+
+  const ease = (t: number) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const animateValue = (set: (v: number) => void, duration: number) => new Promise<void>((res) => {
+    const t0 = performance.now();
+    const step = (t: number) => { const p = Math.min(1, (t - t0) / duration); set(ease(p)); p < 1 ? requestAnimationFrame(step) : res(); };
+    requestAnimationFrame(step);
+  });
+  const retrigger = (el: Element, cls: string) => { el.classList.remove(cls); void (el as HTMLElement).offsetWidth; el.classList.add(cls); };
+
+  function resizeCanvas() {
+    const d = Math.min(devicePixelRatio || 1, 2);
+    W = exp.clientWidth; H = exp.clientHeight;
+    for (const c of [canvas, ...(frozen ? [] : [scene])]) {
+      c.width = W * d; c.height = H * d; c.style.width = W + 'px'; c.style.height = H + 'px';
+      c.getContext('2d')!.setTransform(d, 0, 0, d, 0, 0);
+    }
+  }
+  function drawCover(c: CanvasRenderingContext2D, media: HTMLVideoElement | HTMLImageElement) {
+    const mw = (media as HTMLVideoElement).videoWidth || (media as HTMLImageElement).naturalWidth;
+    const mh = (media as HTMLVideoElement).videoHeight || (media as HTMLImageElement).naturalHeight;
+    if (!mw || !mh) return;
+    const s = Math.max(W / mw, H / mh), w = mw * s, h = mh * s;
+    try { c.drawImage(media, (W - w) / 2, (H - h) / 2, w, h); } catch { /* медиа ещё не готово */ }
+  }
+  function drawShade(c: CanvasRenderingContext2D) {
+    const g = c.createLinearGradient(0, H * .52, 0, H);
+    g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.88)');
+    c.fillStyle = g; c.fillRect(0, H * .52, W, H * .48);
+  }
+  function roundedPoints(w: number, h: number, r: number) {
+    r = Math.max(0, Math.min(r, w / 2, h / 2));
+    const arcs = [[w / 2 - r, -h / 2 + r, -Math.PI / 2, 0], [w / 2 - r, h / 2 - r, 0, Math.PI / 2], [-w / 2 + r, h / 2 - r, Math.PI / 2, Math.PI], [-w / 2 + r, -h / 2 + r, Math.PI, Math.PI * 1.5]];
+    const pts: [number, number][] = [];
+    for (const [cx, cy, a0, a1] of arcs) for (let i = 0; i <= 10; i++) { const a = a0 + (a1 - a0) * (i / 10); pts.push([cx + Math.cos(a) * r, cy + Math.sin(a) * r]); }
+    return pts;
+  }
+  function project([x, y]: [number, number], rx: number, ry: number, cx: number, cy: number): [number, number] {
+    const ax = rx * Math.PI / 180, ay = ry * Math.PI / 180;
+    const xx = x * Math.cos(ay), yy = y * Math.cos(ax), z = x * Math.sin(ay) - y * Math.sin(ax), p = 850 / (850 + z);
+    return [cx + xx * p, cy + yy * p];
+  }
+  function draw(t: number) {
+    const dt = Math.min(40, t - last); last = t;
+    rotX += (targetX - rotX) * Math.min(1, dt * .009);
+    rotY += (targetY - rotY) * Math.min(1, dt * .009);
+    ctx.clearRect(0, 0, W, H);
+    if (frozen) { ctx.drawImage(scene, 0, 0, W, H); drawShade(ctx); }
+    const er = exp.getBoundingClientRect(), pr = portal.getBoundingClientRect();
+    const rcx = pr.left - er.left + pr.width / 2, rcy = pr.top - er.top + pr.height / 2, e = expansion;
+    const cx = rcx + (W / 2 - rcx) * e, cy = rcy + (H / 2 - rcy) * e;
+    const baseW = pr.width + (W - pr.width) * e, baseH = pr.height + (H - pr.height) * e;
+    const scale = e ? 1 : maskScale, w = baseW * scale, h = baseH * scale;
+    const r = (innerWidth <= 640 ? 70 : 90) * (1 - e) * scale, rx = rotX * (1 - e), ry = rotY * (1 - e);
+    if (w > 1 && h > 1) {
+      const pts = roundedPoints(w, h, r).map((p) => project(p, rx, ry, cx, cy));
+      ctx.save(); ctx.globalAlpha = canvasOpacity; ctx.beginPath();
+      pts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); ctx.closePath(); ctx.clip();
+      ctx.fillStyle = '#030303'; ctx.fillRect(0, 0, W, H);
+      const st = states[current];
+      drawCover(ctx, transitionActive ? transVideo : st.image ? portalImage : portalVideo);
+      if (transitionActive) drawShade(ctx);
+      ctx.restore();
+    }
+    requestAnimationFrame(draw);
+  }
+  // Подгоняем гигантский заголовок под свободную ширину слева от фактов (длинные слова вроде «НЕЙРОСЕТИ»).
+  function fitTitle() {
+    title.style.fontSize = '';
+    let size = parseFloat(getComputedStyle(title).fontSize);
+    // title растягивается flex-ом на свободное место; уменьшаем шрифт, пока текст не влезет
+    while (title.scrollWidth > title.clientWidth + 1 && size > 56) { size -= 4; title.style.fontSize = size + 'px'; }
+  }
+  function render() {
+    const st = states[current];
+    exp.dataset.planet = current;
+    title.textContent = st.name.toUpperCase();
+    requestAnimationFrame(fitTitle);
+    $('next-name').textContent = st.next;
+    $('next-number').textContent = st.number;
+    portal.setAttribute('aria-label', st.image ? `Канал ${st.name}: последний в цепочке` : `Перейти к каналу ${st.next}`);
+    facts.innerHTML = st.facts.map(([k, v]) => `<div class="fact"><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+    list.innerHTML = cfg.planets.map(([n, u]: [string, string]) => `<a class="planet-item${n.toLowerCase() === st.name.toLowerCase() ? ' active' : ''}" href="${u}">${n}</a>`).join('');
+    link.href = cfg.base.replace(/\/$/, '') + st.url;
+    linkText.textContent = `Подробнее: ${st.name.toLowerCase()}`;
+    if (!firstRender) retrigger(list, 'is-switching');
+    firstRender = false;
+    document.querySelectorAll('.background').forEach((v) => v.classList.toggle('is-visible', v.id === st.background));
+    const bg = document.getElementById(st.background) as HTMLVideoElement | null;
+    if (bg) { bg.loop = true; bg.play().catch(() => {}); }
+    if (st.image) { portalImage.style.visibility = 'hidden'; } else if (st.portal && portalVideo.src !== st.portal) { portalVideo.src = st.portal; portalVideo.load(); }
+    if (!st.image) { portalVideo.loop = true; portalVideo.play().catch(() => {}); }
+  }
+  const mediaReady = (m: HTMLVideoElement | HTMLImageElement) => new Promise<void>((res) => {
+    if (m instanceof HTMLImageElement) { m.complete ? res() : (m.onload = m.onerror = () => res()); return; }
+    if (m.readyState >= 2) return res();
+    const done = () => res(); m.addEventListener('loadeddata', done, { once: true }); m.addEventListener('error', done, { once: true }); setTimeout(done, 2500);
+  });
+  async function revealMask() { retrigger(exp, 'mask-revealing'); maskScale = 0; await animateValue((v) => (maskScale = v), 1050); }
+  function revealPlanetContent() { retrigger(exp, 'content-revealing'); }
+  async function startExperience() {
+    const st = states[current];
+    await mediaReady(st.image ? portalImage : portalVideo);
+    await revealMask();
+    document.body.classList.add('intro-ready');
+    setTimeout(revealPlanetContent, 850);
+  }
+  function runPreloader() {
+    let finished = false;
+    const finish = () => {
+      if (finished) return; finished = true;
+      preValue.textContent = '100';
+      preCount.classList.add('is-leaving');
+      logo.classList.add('is-docked');
+      preloader.classList.add('is-background');
+      document.body.classList.add('preload-complete');
+      startExperience();
+      setTimeout(() => preCount.remove(), 750);
+      setTimeout(() => logo.classList.add('is-settled'), 2000);
+      try { sessionStorage.setItem('bb-intro', '1'); } catch { /* приватный режим */ }
+    };
+    let seen = false;
+    try { seen = sessionStorage.getItem('bb-intro') === '1'; } catch { /* нет хранилища */ }
+    if (seen || matchMedia('(prefers-reduced-motion: reduce)').matches) { logo.style.transition = 'none'; finish(); return; }
+    const tick = () => { if (finished) return; if (preVideo.duration) preValue.textContent = String(Math.round(preVideo.currentTime / preVideo.duration * 100)); requestAnimationFrame(tick); };
+    const go = () => { preVideo.playbackRate = Math.max(.25, preVideo.duration / 3); preVideo.play().then(() => requestAnimationFrame(tick)).catch(finish); };
+    preVideo.readyState >= 1 ? go() : preVideo.addEventListener('loadedmetadata', go, { once: true });
+    preVideo.addEventListener('ended', finish, { once: true });
+    setTimeout(finish, 9000); // страховка медленной сети
+  }
+  async function travel() {
+    if (busy || current === 'avito') return;
+    busy = true; targetX = targetY = 0;
+    const next = current === 'search' ? 'neuro' : 'avito';
+    try {
+      transVideo.src = states[current].portal!; transVideo.load();
+      exp.classList.add('is-loading');
+      await new Promise<void>((res) => { const done = () => res(); transVideo.addEventListener('canplaythrough', done, { once: true }); transVideo.addEventListener('error', done, { once: true }); setTimeout(done, 1600); });
+      exp.classList.remove('is-loading', 'content-revealing', 'mask-revealing');
+      exp.classList.add('is-transitioning');
+      transVideo.currentTime = 0; transVideo.playbackRate = 1.3; canvasOpacity = 1; transitionActive = true;
+      await transVideo.play().catch(() => {});
+      await animateValue((v) => (expansion = v), 1100);
+      if (!transVideo.ended) await new Promise<void>((res) => { transVideo.addEventListener('ended', () => res(), { once: true }); setTimeout(res, 12000); });
+      sctx.clearRect(0, 0, W, H); drawCover(sctx, transVideo); frozen = true;
+      current = next; exp.classList.add('is-committing'); render();
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      transitionActive = false; expansion = 0; maskScale = 0; canvasOpacity = 1;
+      exp.classList.remove('is-transitioning', 'is-committing');
+      const mr = revealMask(); setTimeout(revealPlanetContent, 100); await mr;
+      setTimeout(() => { frozen = false; transVideo.removeAttribute('src'); transVideo.load(); busy = false; }, 450);
+    } catch {
+      transitionActive = false; expansion = 0; maskScale = 1; canvasOpacity = 1;
+      exp.classList.remove('is-loading', 'is-transitioning', 'is-committing'); busy = false;
+    }
+  }
+  exp.addEventListener('pointermove', (e) => {
+    if (busy || e.pointerType !== 'mouse') return;
+    const r = exp.getBoundingClientRect();
+    targetY = ((e.clientX - r.left) / r.width - .5) * 37.4;
+    targetX = ((e.clientY - r.top) / r.height - .5) * -33;
+  });
+  exp.addEventListener('pointerleave', () => { targetX = targetY = 0; });
+  portal.addEventListener('click', travel);
+  addEventListener('resize', () => { resizeCanvas(); fitTitle(); });
+  document.querySelectorAll<HTMLVideoElement>('.background').forEach((v) => { v.pause(); v.currentTime = 0; });
+  resizeCanvas(); render(); requestAnimationFrame(draw); runPreloader();
+</script>

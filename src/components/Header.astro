@@ -1,0 +1,46 @@
+---
+import { withBase } from '../lib/site.mjs';
+interface Props { current?: string; solid?: boolean }
+const { current = '', solid = false } = Astro.props;
+const nav = [['/seo/', 'Поиск'], ['/geo/', 'Нейросети'], ['/avitolog/', 'Авито'], ['/kejsy/', 'Кейсы']];
+const isActive = (h) => current.startsWith(h);
+const groups = [
+  { t: 'Поиск', l: [['/seo/', 'SEO-продвижение'], ['/seo/yandex/', 'В Яндексе'], ['/seo/google/', 'В Google'], ['/seo/internet-magazin/', 'Интернет-магазин'], ['/seo/sajt-uslug/', 'Сайт услуг'], ['/seo/optimizaciya/', 'SEO-оптимизация'], ['/seo-specialist/', 'Частный специалист']] },
+  { t: 'Нейросети и аудит', l: [['/geo/', 'GEO-оптимизация'], ['/geo/prodvizhenie-v-nejrosetyah/', 'Продвижение в нейросетях'], ['/geo/audit/', 'Аудит AI-готовности'], ['/audit-sajta/', 'SEO-аудит'], ['/audit-sajta/tehnicheskij/', 'Технический аудит'], ['/audit-sajta/yuzabiliti/', 'Юзабилити-аудит']] },
+  { t: 'Сайты', l: [['/sozdanie-sajtov/', 'Создание сайта'], ['/sozdanie-sajtov/lending/', 'Лендинг'], ['/sozdanie-sajtov/s-prodvizheniem/', 'Сайт с продвижением'], ['/redizajn-sajta/', 'Редизайн'], ['/dorabotka-sajta/', 'Доработка'], ['/podderzhka-sajta/', 'Поддержка']] },
+  { t: 'Авито и агентство', l: [['/avitolog/', 'Авитолог'], ['/prodvizhenie-na-avito/', 'Продвижение на Авито'], ['/avito-konsultaciya/', 'Консультация'], ['/kejsy/', 'Кейсы'], ['/o-nas/', 'О нас'], ['/kontakty/', 'Контакты']] },
+];
+---
+<header class={`site-header ${solid ? 'is-solid' : ''}`}>
+  <a class="brand" href={withBase('/')} aria-label="Биба и Боба, на главную">
+    <svg class="brand-mark" viewBox="0 0 60 58" aria-hidden="true"><circle cx="23" cy="31" r="19" fill="#fff"/><circle cx="44" cy="18" r="11" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+    <span class="brand-name">Биба и Боба</span>
+  </a>
+  <div class="header-actions">
+    <nav class="nav" aria-label="Основная навигация">
+      {nav.map(([h, t]) => <a class={isActive(h) ? 'active' : ''} aria-current={isActive(h) ? 'page' : undefined} href={withBase(h)}>{t}</a>)}
+    </nav>
+    <button class="menu-btn" type="button" data-menu-open aria-expanded="false" aria-controls="menu-overlay">Меню</button>
+  </div>
+</header>
+<div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Меню сайта">
+  <div class="menu-top">
+    <a class="brand" href={withBase('/')}><svg class="brand-mark" viewBox="0 0 60 58" aria-hidden="true"><circle cx="23" cy="31" r="19" fill="#fff"/><circle cx="44" cy="18" r="11" fill="none" stroke="#fff" stroke-width="2.4"/></svg><span class="brand-name">Биба и Боба</span></a>
+    <button class="menu-btn" type="button" data-menu-close>Закрыть</button>
+  </div>
+  <div class="menu-grid">
+    {groups.map((g) => (
+      <div><h2>{g.t}</h2><ul>{g.l.map(([h, t]) => <li><a href={withBase(h)}>{t}</a></li>)}</ul></div>
+    ))}
+  </div>
+  <p style="margin-top:40px"><a class="pill pill-light" href={withBase('/audit-besplatno/')}><span class="dot"></span>Бесплатный экспресс-аудит</a></p>
+</div>
+<script>
+  const ov = document.getElementById('menu-overlay');
+  const openBtn = document.querySelector('[data-menu-open]');
+  const open = () => { ov.classList.add('is-open'); openBtn.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; ov.querySelector('a')?.focus(); };
+  const close = () => { ov.classList.remove('is-open'); openBtn.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; openBtn.focus(); };
+  openBtn?.addEventListener('click', open);
+  document.querySelector('[data-menu-close]')?.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && ov.classList.contains('is-open')) close(); });
+</script>

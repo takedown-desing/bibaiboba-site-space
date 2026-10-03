@@ -1,0 +1,11 @@
+---
+import { AUTHORS, withBase } from '../lib/site.mjs';
+interface Props { author?: string; date?: string }
+const { author = 'aleksey', date = '2026-10-03' } = Astro.props;
+const list = author === 'both' ? [AUTHORS.aleksey, AUTHORS.valentin] : [AUTHORS[author] || AUTHORS.aleksey];
+const ds = new Date(String(date)).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<div class="author-row">
+  {list.map((a) => <a class="author" href={withBase(a.url)}><i aria-hidden="true">{a.initials}</i><span><b>{a.name}</b>{a.role}</span></a>)}
+  <span class="updated">Обновлено: <time datetime={String(date)}>{ds}</time></span>
+</div>

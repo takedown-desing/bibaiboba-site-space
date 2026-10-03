@@ -1,0 +1,47 @@
+---
+import '../styles/space.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Cursor from '../components/Cursor.astro';
+import { SITE, absUrl, withBase } from '../lib/site.mjs';
+import { buildGraph } from '../lib/schema.mjs';
+interface Props { d: any; home?: boolean }
+const { d, home = false } = Astro.props;
+const graph = buildGraph(d);
+---
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{d.title}</title>
+    <meta name="description" content={d.description} />
+    <link rel="canonical" href={absUrl(d.url)} />
+    {SITE.preview && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:type" content={d.type === 'case' ? 'article' : 'website'} />
+    <meta property="og:locale" content="ru_RU" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={d.og_title || d.title} />
+    <meta property="og:description" content={d.og_description || d.description} />
+    <meta property="og:url" content={absUrl(d.url)} />
+    <meta property="og:image" content={absUrl('/og.png')} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#090807" />
+    <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
+    <link rel="apple-touch-icon" href={withBase('/apple-touch-icon.png')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;500;700&family=Oswald:wght@400;500&display=swap" />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  </head>
+  <body class={home ? 'page-home' : ''}>
+    <a class="skip-link" href="#main">К содержанию</a>
+    {home ? <Header current="/" /> : null}
+    <slot name="hero" />
+    <main id="main"><slot /></main>
+    <Footer />
+    <Cursor />
+  </body>
+</html>

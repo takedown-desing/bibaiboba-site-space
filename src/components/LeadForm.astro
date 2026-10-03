@@ -1,0 +1,23 @@
+---
+import { withBase } from '../lib/site.mjs';
+interface Props { kind?: 'audit' | 'brief' | 'contact'; title?: string }
+const { kind = 'audit', title = 'Заявка' } = Astro.props;
+const id = `form-${kind}`;
+---
+<form id={id} class="form" data-preview-form novalidate>
+  <p class="form-title">{title}</p>
+  <label for={`${id}-name`}>Как к вам обращаться<input id={`${id}-name`} name="name" required autocomplete="name" /></label>
+  <label for={`${id}-contact`}>Телефон или ник в мессенджере<input id={`${id}-contact`} name="contact" required autocomplete="tel" /></label>
+  {kind !== 'contact' && <label for={`${id}-site`}>{kind === 'audit' ? 'Адрес сайта или ссылка на профиль Авито' : 'Сайт или профиль, если есть'}<input id={`${id}-site`} name="site" inputmode="url" /></label>}
+  {kind !== 'audit' && <label for={`${id}-msg`}>Задача<textarea id={`${id}-msg`} name="message" rows="4"></textarea></label>}
+  <label class="consent" for={`${id}-consent`}><input id={`${id}-consent`} type="checkbox" name="consent" required /><span>Согласен на обработку персональных данных по <a href={withBase('/politika/')}>политике конфиденциальности</a></span></label>
+  <button type="submit">Отправить заявку</button>
+  <p role="status" hidden data-form-status></p>
+</form>
+<script>
+  document.querySelectorAll('[data-preview-form]').forEach((f) => f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const s = f.querySelector('[data-form-status]'); s.hidden = false;
+    s.textContent = f.checkValidity() ? 'Это превью сайта: форма пока не отправляет данные. После запуска заявка придёт нам в Telegram.' : 'Заполните имя, контакт и подтвердите согласие.';
+  }));
+</script>
