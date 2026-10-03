@@ -1,5 +1,6 @@
 ---
 import { withBase } from '../lib/site.mjs';
+import Logo from './Logo.astro';
 const cols = [
   ['Поиск', [['/seo/', 'SEO-продвижение'], ['/seo/yandex/', 'Продвижение в Яндексе'], ['/seo/internet-magazin/', 'Интернет-магазин'], ['/seo-specialist/', 'Частный SEO-специалист'], ['/kontent-dlya-sajta/', 'SEO-тексты']]],
   ['Нейросети и аудит', [['/geo/', 'GEO-оптимизация'], ['/geo/prodvizhenie-v-nejrosetyah/', 'Продвижение в нейросетях'], ['/geo/audit/', 'Аудит AI-готовности'], ['/audit-sajta/', 'SEO-аудит'], ['/audit-besplatno/', 'Экспресс-аудит']]],
@@ -10,9 +11,9 @@ const cols = [
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div><h2>Биба и Боба</h2><p style="margin:0;max-width:30ch">Агентство заявок: поиск, нейросети, Авито. Два практика, удалённо по всей России.</p></div>
+      <div><a class="brand footer-brand" href={withBase('/')} aria-label="На главную"><Logo size={44} /></a><p style="margin:0;max-width:30ch">Агентство заявок: поиск, нейросети, Авито. Два практика, удалённо по всей России.</p></div>
       {cols.map(([t, l]) => <div><h2>{t}</h2><ul>{l.map(([h, x]) => <li><a href={withBase(h)}>{x}</a></li>)}</ul></div>)}
     </div>
-    <div class="footer-bottom"><span>© 2026 Биба и Боба. Превью сайта, закрыто от индексации.</span><a href={withBase('/politika/')}>Политика конфиденциальности</a></div>
+    <div class="footer-bottom"><span>© 2026. Превью сайта, закрыто от индексации.</span><a href={withBase('/politika/')}>Политика конфиденциальности</a></div>
   </div>
 </footer>

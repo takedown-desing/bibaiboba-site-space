@@ -25,6 +25,7 @@ const planets = [
   ['Сайты', '/sozdanie-sajtov/'], ['Редизайн', '/redizajn-sajta/'], ['Поддержка', '/podderzhka-sajta/'], ['Тексты', '/kontent-dlya-sajta/'],
 ].map(([n, u]) => [n, withBase(u)]);
 const config = { states, planets, base: withBase('/') };
+import Logo from './Logo.astro';
 ---
 <section class="experience" id="experience" data-planet="search" aria-label="Три канала заявок">
   <div class="backgrounds" aria-hidden="true">
@@ -36,7 +37,7 @@ const config = { states, planets, base: withBase('/') };
     <video id="preloader-video" src={MEDIA.TO_MARS} muted playsinline preload="auto"></video>
     <div class="preloader-shade"></div>
   </div>
-  <svg class="floating-logo" id="floating-logo" viewBox="0 0 60 58" role="img" aria-label="Биба и Боба"><circle cx="23" cy="31" r="19" fill="#fff"/><circle cx="44" cy="18" r="11" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
+  <Logo class="floating-logo" id="floating-logo" size={58} label="Знак агентства" />
   <div class="preloader-count" id="preloader-count" aria-live="polite"><span id="preloader-value">0</span><span class="percent">%</span></div>
   <canvas id="scene-canvas" class="scene-canvas" aria-hidden="true"></canvas>
   <div class="shade" aria-hidden="true"></div>
@@ -111,9 +112,9 @@ const config = { states, planets, base: withBase('/') };
   .preloader-shade { position: absolute; inset: auto 0 0; height: 35%; background: linear-gradient(to bottom, transparent, #000); }
   .preloader.is-background { z-index: 0; }
   .preloader.is-background .preloader-shade { opacity: 0; }
-  .floating-logo { position: absolute; z-index: 22; left: 50%; top: 50%; width: 59px; height: 58px; transform: translate(-50%, -50%); will-change: left, top, width, height, transform;
+  .floating-logo { position: absolute; z-index: 22; left: 50%; top: 50%; width: 58px; height: 58px; transform: translate(-50%, -50%); will-change: left, top, width, height, transform;
     transition: left 2s cubic-bezier(.16,1,.3,1), top 2s cubic-bezier(.16,1,.3,1), width 2s cubic-bezier(.16,1,.3,1), height 2s cubic-bezier(.16,1,.3,1), transform 2s cubic-bezier(.16,1,.3,1); }
-  .floating-logo.is-docked { left: clamp(18px, 1.95vw, 28px); top: clamp(21px, calc(3.1vh + 3px), 31px); width: 37px; height: 36px; transform: none; }
+  .floating-logo.is-docked { left: clamp(18px, 1.95vw, 28px); top: clamp(21px, calc(3.1vh + 3px), 31px); width: 36px; height: 36px; transform: none; }
   .floating-logo.is-settled { z-index: 31; }
   .preloader-count { position: absolute; z-index: 22; left: 50%; bottom: clamp(22px, 3.1vh, 28px); display: flex; align-items: flex-end; gap: 4px; transform: translateX(-50%); line-height: 1; }
   .preloader-count > span:first-child { font-family: 'Inter', 'SF Pro', Arial, sans-serif; font-size: 64px; font-weight: 100; }

@@ -10,6 +10,7 @@ import AuthorRow from '../components/AuthorRow.astro';
 import LeadForm from '../components/LeadForm.astro';
 import images from '../data/images.json';
 import { withBase } from '../lib/site.mjs';
+import CaseCard from '../components/CaseCard.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
@@ -40,7 +41,7 @@ const hd = d.type === 'case' && d.case && !d.highlights?.length ? { ...d, highli
             <section class="sec">
               <div class="sec-head"><span class="sec-num" aria-hidden="true">[★]</span><h2 id="vse-kejsy">Все кейсы</h2></div>
               <div class="case-grid cards" data-count={allCases.length}>
-                {allCases.map((c) => <a class="case-card" href={withBase(c.url)}><span class="case-niche">{c.case?.niche}</span><span class="case-metric"><b>{c.case?.contacts}</b> обращений</span><span class="case-metric"><b>{c.case?.contact_price}</b> за обращение</span>{c.case?.deltas && <span class="case-delta">{c.case.deltas}</span>}<span class="case-more">Читать кейс</span></a>)}
+                {allCases.map((c) => <CaseCard c={c} />)}
               </div>
             </section>
           )}

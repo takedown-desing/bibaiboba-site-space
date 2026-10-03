@@ -1,0 +1,11 @@
+---
+// Знак агентства без названия: облачко сообщения (заявка) со спутником-кольцом в вырезе.
+interface Props { size?: number; class?: string; id?: string; label?: string }
+const { size = 36, class: cls = '', id: elId, label } = Astro.props;
+const id = 'bbm-' + Math.random().toString(36).slice(2, 9);
+---
+<svg class={cls} id={elId} width={size} height={size} viewBox="2 4 42 42" role={label ? 'img' : undefined} aria-label={label} aria-hidden={label ? undefined : 'true'} focusable="false">
+  <defs><mask id={id} maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48"><rect width="48" height="48" fill="#fff" /><circle cx="34" cy="14" r="11" fill="#000" /></mask></defs>
+  <g mask={`url(#${id})`} fill="#fff"><circle cx="21" cy="27" r="17" /><path d="M6 32 L4 45 L15 41 Z" /></g>
+  <circle cx="34" cy="14" r="6.6" fill="none" stroke="#fff" stroke-width="2.3" />
+</svg>

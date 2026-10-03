@@ -2,6 +2,7 @@
 // Шапка варианта Space: стеклянная пилюля с выпадающими подразделами + полноэкранное меню.
 import { getCollection } from 'astro:content';
 import { withBase, NAV } from '../lib/site.mjs';
+import Logo from './Logo.astro';
 interface Props { current?: string; solid?: boolean }
 const { current = '', solid = false } = Astro.props;
 const cases = (await getCollection('pages')).filter((p) => p.data.type === 'case').map((p) => [p.data.url, p.data.case?.niche || p.data.h1]);
@@ -9,9 +10,8 @@ const nav = NAV.map((g) => ({ ...g, items: g.cases ? [...g.items, ...cases] : g.
 const isActive = (g) => current !== '/' && (current.startsWith(g.href) || g.items.some(([h]) => current === h));
 ---
 <header class={`site-header ${solid ? 'is-solid' : ''}`}>
-  <a class="brand" href={withBase('/')} aria-label="Биба и Боба, на главную">
-    <svg class="brand-mark" viewBox="0 0 60 58" aria-hidden="true"><circle cx="23" cy="31" r="19" fill="#fff"/><circle cx="44" cy="18" r="11" fill="none" stroke="#fff" stroke-width="2.4"/></svg>
-    <span class="brand-name">Биба и Боба</span>
+  <a class="brand" href={withBase('/')} aria-label="На главную">
+    <Logo class="brand-mark" />
   </a>
   <div class="header-actions">
     <nav class="nav" aria-label="Основная навигация">
@@ -34,7 +34,7 @@ const isActive = (g) => current !== '/' && (current.startsWith(g.href) || g.item
 </header>
 <div class="menu-overlay" id="menu-overlay" role="dialog" aria-modal="true" aria-label="Меню сайта">
   <div class="menu-top">
-    <a class="brand" href={withBase('/')}><svg class="brand-mark" viewBox="0 0 60 58" aria-hidden="true"><circle cx="23" cy="31" r="19" fill="#fff"/><circle cx="44" cy="18" r="11" fill="none" stroke="#fff" stroke-width="2.4"/></svg><span class="brand-name">Биба и Боба</span></a>
+    <a class="brand" href={withBase('/')} aria-label="На главную"><Logo class="brand-mark" /></a>
     <button class="menu-btn" type="button" data-menu-close>Закрыть</button>
   </div>
   <div class="menu-grid">

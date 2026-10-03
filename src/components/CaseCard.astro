@@ -1,0 +1,18 @@
+---
+// Карточка кейса с превью-картинкой (хаб, главная, блок :::cases).
+import { withBase } from '../lib/site.mjs';
+import { previewFor } from '../lib/previews.mjs';
+interface Props { c: any }
+const { c } = Astro.props;
+const p = previewFor(c.url);
+---
+<a class="case-card" href={withBase(c.url)}>
+  {p && <span class="case-img"><img src={withBase(p.file)} alt={p.alt || c.case?.niche || ''} width={p.width || 1200} height={p.height || 800} loading="lazy" decoding="async" /></span>}
+  <span class="case-body">
+    <span class="case-niche">{c.case?.niche}</span>
+    <span class="case-metric"><b>{c.case?.contacts}</b> обращений</span>
+    <span class="case-metric"><b>{c.case?.contact_price}</b> за обращение</span>
+    {c.case?.deltas && <span class="case-delta">{c.case.deltas}</span>}
+    <span class="case-more">Читать кейс</span>
+  </span>
+</a>

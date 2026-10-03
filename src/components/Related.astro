@@ -1,11 +1,12 @@
 ---
 import { withBase } from '../lib/site.mjs';
+import { previewFor } from '../lib/previews.mjs';
 interface Props { items: { url: string; title: string; text?: string }[] }
 const { items = [] } = Astro.props;
 ---
 {items.length > 0 && (
   <section aria-labelledby="rel-title">
     <h2 id="rel-title" class="section-title" style="font-size:clamp(40px,5vw,72px)">Смотрите также</h2>
-    <div class="related-grid cards" data-count={items.length}>{items.map((r) => <a class="related-card" href={withBase(r.url)}><b>{r.title}</b>{r.text && <span>{r.text}</span>}</a>)}</div>
+    <div class="related-grid cards" data-count={items.length}>{items.map((r) => { const p = previewFor(r.url); return <a class="related-card" href={withBase(r.url)}>{p && <span class="case-img"><img src={withBase(p.file)} alt={p.alt || r.title} width="1200" height="800" loading="lazy" decoding="async" /></span>}<span class="related-body"><b>{r.title}</b>{r.text && <span>{r.text}</span>}</span></a>; })}</div>
   </section>
 )}

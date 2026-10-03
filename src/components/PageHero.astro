@@ -14,7 +14,6 @@ const cta = d.hero_cta || {};
     {d.breadcrumbs?.length > 1 && (
       <nav class="crumbs" aria-label="Хлебные крошки"><ol>{d.breadcrumbs.map((b, i) => <li>{i < d.breadcrumbs.length - 1 ? <a href={withBase(b.url)}>{b.name}</a> : <span aria-current="page">{b.name}</span>}</li>)}</ol></nav>
     )}
-    {d.eyebrow && <span class="eyebrow">{d.eyebrow}</span>}
     <h1 class="display">{d.h1}</h1>
     <div class="hero-row">
       <div style="display:grid;gap:22px">
