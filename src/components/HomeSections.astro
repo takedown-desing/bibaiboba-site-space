@@ -1,5 +1,6 @@
 ---
 import Faq from './Faq.astro';
+import QuizCalc from './QuizCalc.astro';
 import { getCollection } from 'astro:content';
 import { withBase } from '../lib/site.mjs';
 import { previewFor } from '../lib/previews.mjs';
@@ -19,6 +20,8 @@ const rest = cases.filter((c) => !featured.includes(c)).slice(0, 6);
     <div class="hero-ctas"><a class="pill pill-light" href={withBase('/o-nas/')}><span class="dot"></span>О нас</a><a class="pill pill-glass" href={withBase('/audit-besplatno/')}>Бесплатный аудит</a></div>
   </div>
 </section>
+
+<section class="wrap" style="padding-block:clamp(24px,4vw,60px)"><QuizCalc /></section>
 
 <section class="wrap cq" style="padding-block:clamp(40px,6vw,90px)">
   <div class="kicker"><span>[02]</span><span><strong>Кейсы Авито с цифрами из кабинета</strong></span></div>

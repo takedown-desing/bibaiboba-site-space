@@ -1,0 +1,162 @@
+---
+// Квиз-калькулятор «С чего начать»: 4 вопроса → канал, услуги и ориентир по Авито из реальных кейсов → заявка.
+// Цен на услуги нет (решение 03.10.2026). Ориентир считается только по цене обращения из кейсов того же раздела.
+import { getCollection } from 'astro:content';
+import { withBase, CASE_CATS } from '../lib/site.mjs';
+interface Props { id?: string }
+const { id = 'quiz' } = Astro.props;
+const num = (s) => Number(String(s || '').replace(/\D/g, '')) || 0;
+const cases = (await getCollection('pages')).filter((p) => p.data.type === 'case').map((p) => p.data);
+const ranges = {};
+for (const [k] of CASE_CATS) {
+  const list = cases.filter((c) => c.case?.category === k).map((c) => ({ price: num(c.case.contact_price), url: c.url, niche: c.case.niche }));
+  if (!list.length) continue;
+  const prices = list.map((x) => x.price);
+  const s = [...prices].sort((x, y) => x - y); const med = s.length % 2 ? s[(s.length - 1) / 2] : Math.round((s[s.length / 2 - 1] + s[s.length / 2]) / 2);
+  ranges[k] = { min: s[0], max: s[s.length - 1], med, n: list.length };
+}
+const LINKS = {
+  avito: { href: withBase('/prodvizhenie-na-avito/'), label: 'Продвижение на Авито' },
+  avitolog: { href: withBase('/avitolog/'), label: 'Авитолог под ключ' },
+  seo: { href: withBase('/seo/'), label: 'SEO-продвижение' },
+  site: { href: withBase('/sozdanie-sajtov/s-prodvizheniem/'), label: 'Сайт с продвижением' },
+  geo: { href: withBase('/geo/'), label: 'GEO: продвижение в нейросетях' },
+  geoaudit: { href: withBase('/geo/audit/'), label: 'Аудит AI-готовности' },
+  audit: { href: withBase('/audit-besplatno/'), label: 'Бесплатный экспресс-аудит' },
+  consult: { href: withBase('/avito-konsultaciya/'), label: 'Консультация авитолога' },
+};
+const Q = [
+  { name: 'has', title: 'Что у вас уже есть?', opts: [['none', 'Пока ничего, только начинаю'], ['site', 'Есть сайт'], ['avito', 'Есть профиль на Авито'], ['both', 'Есть и сайт, и Авито']] },
+  { name: 'niche', title: 'Чем занимается бизнес?', opts: [...CASE_CATS.map(([k, l]) => [k, l]), ['other', 'Другое: B2B, эксперт, онлайн-услуги']] },
+  { name: 'where', title: 'Где вас ищут клиенты?', opts: [['search', 'В Яндексе и Google'], ['avito', 'На Авито'], ['ai', 'Спрашивают у нейросетей'], ['unknown', 'Не знаю, хочу разобраться']] },
+  { name: 'budget', title: 'Сколько готовы тратить на рекламу в месяц?', hint: 'Это рекламный бюджет площадки, не оплата нашей работы', opts: [['15000', 'до 15 000 ₽'], ['40000', '15 000 – 40 000 ₽'], ['100000', '40 000 – 100 000 ₽'], ['200000', 'больше 100 000 ₽'], ['0', 'Пока не знаю']] },
+];
+---
+<section class="quiz" id={id} data-quiz data-ranges={JSON.stringify(ranges)} data-links={JSON.stringify(LINKS)} aria-labelledby={`${id}-title`}>
+  <div class="quiz-head">
+    <h2 id={`${id}-title`} class="quiz-title">С чего начать: подберём канал за 4 вопроса</h2>
+    <p class="quiz-sub">Покажем, какой канал даст заявки быстрее, и ориентир по Авито из наших кейсов. Без цен из головы и без обязательств.</p>
+  </div>
+  <form class="quiz-form" novalidate>
+    <div class="quiz-progress" aria-hidden="true"><span data-bar></span></div>
+    <p class="quiz-step-label" data-step-label>Вопрос 1 из {Q.length}</p>
+    {Q.map((q, i) => (
+      <fieldset class="quiz-step" data-step={i} aria-describedby={q.hint ? `${id}-${q.name}-hint` : undefined}>
+        <legend>{q.title}</legend>
+        {q.hint && <p class="quiz-hint" id={`${id}-${q.name}-hint`}>{q.hint}</p>}
+        <div class="quiz-opts">
+          {q.opts.map(([v, l]) => (
+            <label class="quiz-opt"><input type="radio" name={q.name} value={v} /><span>{l}</span></label>
+          ))}
+        </div>
+      </fieldset>
+    ))}
+    <div class="quiz-result" data-result hidden aria-live="polite">
+      <p class="quiz-kicker">Ваш старт</p>
+      <h3 class="quiz-res-title" data-res-title></h3>
+      <p class="quiz-res-text" data-res-text></p>
+      <div class="quiz-estimate" data-estimate hidden>
+        <p class="quiz-est-label">Ориентир по Авито из наших кейсов</p>
+        <p class="quiz-est-value" data-est-value></p>
+        <p class="quiz-est-note" data-est-note></p>
+      </div>
+      <ul class="quiz-links" data-res-links></ul>
+      <div class="quiz-lead">
+        <p class="quiz-lead-title">Отправьте ответы, и мы вернёмся с планом</p>
+        <label>Как к вам обращаться<input name="name" autocomplete="name" required /></label>
+        <label>Телефон или ник в мессенджере<input name="contact" autocomplete="tel" required /></label>
+        <input type="hidden" name="answers" data-answers />
+        <label class="quiz-consent"><input type="checkbox" name="consent" required /><span>Согласен на обработку персональных данных по <a href={withBase('/politika/')}>политике конфиденциальности</a></span></label>
+        <button type="submit" class="quiz-submit">Получить план</button>
+        <p role="status" class="quiz-status" data-status hidden></p>
+      </div>
+    </div>
+    <div class="quiz-nav">
+      <button type="button" class="quiz-back" data-back hidden>Назад</button>
+      <button type="button" class="quiz-restart" data-restart hidden>Пройти заново</button>
+    </div>
+  </form>
+</section>
+
+<script>
+  const fmt = (n) => new Intl.NumberFormat('ru-RU').format(Math.round(n));
+  document.querySelectorAll<HTMLElement>('[data-quiz]').forEach((root) => {
+    const ranges = JSON.parse(root.dataset.ranges || '{}');
+    const L = JSON.parse(root.dataset.links || '{}');
+    const form = root.querySelector('form') as HTMLFormElement;
+    const steps = [...root.querySelectorAll<HTMLElement>('[data-step]')];
+    const bar = root.querySelector<HTMLElement>('[data-bar]')!;
+    const label = root.querySelector<HTMLElement>('[data-step-label]')!;
+    const back = root.querySelector<HTMLButtonElement>('[data-back]')!;
+    const restart = root.querySelector<HTMLButtonElement>('[data-restart]')!;
+    const result = root.querySelector<HTMLElement>('[data-result]')!;
+    const nicheName = Object.fromEntries([...root.querySelectorAll<HTMLInputElement>('input[name="niche"]')].map((i) => [i.value, i.parentElement!.textContent!.trim()]));
+    let cur = 0;
+    root.classList.add('is-js');
+    const show = (i: number) => {
+      cur = i;
+      steps.forEach((s, k) => { s.hidden = k !== i; });
+      result.hidden = i < steps.length;
+      label.hidden = i >= steps.length;
+      label.textContent = `Вопрос ${i + 1} из ${steps.length}`;
+      bar.style.width = `${Math.min(100, (i / steps.length) * 100)}%`;
+      back.hidden = i === 0;
+      restart.hidden = i < steps.length;
+      if (i >= steps.length) { bar.style.width = '100%'; render(); }
+    };
+    const val = (n: string) => (form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`) || {}).value || '';
+    const render = () => {
+      const has = val('has'), niche = val('niche'), where = val('where'), budget = Number(val('budget'));
+      const local = niche && niche !== 'other';
+      let title = '', text = '', links: string[] = [];
+      if (where === 'ai') {
+        title = 'Начните с проверки сайта для нейросетей';
+        text = has === 'none' || has === 'avito' ? 'Нейросети берут ответы с сайтов. Без сайта вас не процитируют, поэтому первым шагом нужен сайт, сразу подготовленный под AI-поиск.' : 'Проверим, видят ли ваш сайт ChatGPT, Алиса и Нейро, и что мешает стать источником для их ответов.';
+        links = has === 'none' || has === 'avito' ? ['site', 'geo'] : ['geoaudit', 'geo'];
+      } else if (local && (where === 'avito' || ((has === 'none' || has === 'avito') && where !== 'search'))) {
+        title = has === 'avito' || has === 'both' ? 'Разберём и усилим ваш Авито' : 'Начните с Авито';
+        text = has === 'avito' || has === 'both' ? 'Профиль уже есть: найдём, где теряются просмотры и контакты, и перестроим объявления.' : 'Для локального бизнеса Авито обычно даёт первые обращения быстрее поиска: в наших кейсах первые контакты приходили в течение 2–4 недель. Сайт можно подключить вторым шагом.';
+        links = has === 'avito' || has === 'both' ? ['consult', 'avitolog'] : ['avito', 'avitolog'];
+      } else if (has === 'site' || has === 'both') {
+        title = 'Начните с аудита сайта';
+        text = 'Сайт уже есть: сначала найдём, что мешает ему получать заявки из поиска, затем возьмём продвижение в Яндексе и Google.';
+        links = local ? ['audit', 'seo', 'avito'] : ['audit', 'seo'];
+      } else {
+        title = 'Начните с сайта, который сразу продвигается';
+        text = 'Сайта пока нет: соберём его со структурой и текстами под поиск и нейросети, чтобы он начал собирать заявки сразу после запуска.';
+        links = local ? ['site', 'avito'] : ['site', 'seo'];
+      }
+      root.querySelector('[data-res-title]')!.textContent = title;
+      root.querySelector('[data-res-text]')!.textContent = text;
+      const ul = root.querySelector('[data-res-links]')!;
+      ul.innerHTML = '';
+      links.forEach((k) => { const li = document.createElement('li'); const a = document.createElement('a'); a.href = L[k].href; a.textContent = L[k].label; li.append(a); ul.append(li); });
+      const est = root.querySelector<HTMLElement>('[data-estimate]')!;
+      const r = ranges[niche];
+      const avitoLed = links.some((k) => ['avito', 'avitolog', 'consult'].includes(k));
+      if (r && budget > 0 && avitoLed) {
+        const band = { 15000: [0, 15000], 40000: [15000, 40000], 100000: [40000, 100000], 200000: [100000, 0] }[budget] || [0, budget];
+        const a = Math.floor(band[0] / r.med), b = band[1] ? Math.floor(band[1] / r.med) : 0;
+        root.querySelector('[data-est-value]')!.textContent = !band[0] ? `до ≈ ${fmt(b)} обращений в месяц` : b ? `≈ ${fmt(a)}–${fmt(b)} обращений в месяц` : `от ≈ ${fmt(a)} обращений в месяц`;
+        root.querySelector('[data-est-note]')!.textContent = `Считаем по средней цене обращения в разделе «${nicheName[niche]}»: ${fmt(r.med)} ₽ (кейсов: ${r.n}, разброс от ${fmt(r.min)} до ${fmt(r.max)} ₽, цифры из кабинета Авито). Это не обещание: итог зависит от города, сезона и самих объявлений.`;
+        est.hidden = false;
+      } else est.hidden = true;
+      root.querySelector<HTMLInputElement>('[data-answers]')!.value = ['has', 'niche', 'where', 'budget'].map((n) => {
+        const i = form.querySelector<HTMLInputElement>(`input[name="${n}"]:checked`); return i ? i.parentElement!.textContent!.trim() : '';
+      }).join(' | ');
+    };
+    form.addEventListener('change', (e) => {
+      const t = e.target as HTMLInputElement;
+      if (t.type === 'radio') setTimeout(() => show(cur + 1), 180);
+    });
+    back.addEventListener('click', () => show(Math.max(0, cur - 1)));
+    restart.addEventListener('click', () => { form.reset(); show(0); });
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const s = root.querySelector<HTMLElement>('[data-status]')!; s.hidden = false;
+      const ok = ['name', 'contact', 'consent'].every((n) => (form.elements.namedItem(n) as HTMLInputElement).type === 'checkbox' ? (form.elements.namedItem(n) as HTMLInputElement).checked : (form.elements.namedItem(n) as HTMLInputElement).value.trim());
+      s.textContent = ok ? 'Это превью сайта: заявка пока не отправляется. После запуска ответы квиза придут нам вместе с контактом.' : 'Заполните имя, контакт и подтвердите согласие.';
+    });
+    show(0);
+  });
+</script>
