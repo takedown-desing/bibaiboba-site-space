@@ -426,3 +426,27 @@ a { color: inherit; }
 .hero-portrait { width: min(340px, 100%); aspect-ratio: 1; object-fit: cover; border-radius: 32px; border: 1px solid rgba(255,255,255,.3); filter: grayscale(1) contrast(1.05); transition: filter .6s; justify-self: end; }
 .hero-portrait:hover { filter: grayscale(0); }
 .author-photo { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; filter: grayscale(1); }
+
+/* Правки по отзыву дизайнера (04.10.2026): больше межстрочный у узкого заголовочного шрифта, подписи блоков не съезжают */
+.display { line-height: 1; }
+.section-title { line-height: 1; }
+.prose h2, .prose .sec-head h2 { line-height: 1.05; }
+.blk-cta strong, .form p.form-title { line-height: 1.05; }
+.mt-title { line-height: 1; }
+.stat-value { line-height: 1; }
+.related-card b { line-height: 1.08; }
+.sec .section-title { line-height: 1.02; }
+@media (max-width: 640px) {
+  .display { line-height: 1.04; }
+  .section-title { line-height: 1.04; }
+  .prose h2, .prose .sec-head h2 { line-height: 1.08; }
+  .mt-title { line-height: 1.04; }
+}
+.kicker { gap: 16px; align-items: baseline; }
+.kicker > span:first-child { flex: none; }
+.kicker > span:last-child { text-align: right; text-wrap: balance; }
+.kicker strong { margin-left: 0; }
+@media (max-width: 640px) {
+  .kicker { justify-content: flex-start; }
+  .kicker > span:last-child { text-align: left; }
+}
