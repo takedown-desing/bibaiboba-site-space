@@ -1,0 +1,26 @@
+---
+// Прямые контакты партнёров с иконками: на странице «Контакты» оба, на странице партнёра только он.
+import { AUTHORS, CONTACTS, CONTACT_ICONS, withBase } from '../lib/site.mjs';
+interface Props { only?: 'aleksey' | 'valentin' }
+const { only } = Astro.props;
+const people = (only ? [only] : ['aleksey', 'valentin']).map((k) => ({ k, a: AUTHORS[k], links: CONTACTS[k] }));
+const topic = { aleksey: 'SEO, сайты, нейросети', valentin: 'Продвижение на Авито' };
+---
+<section class={`contact-links ${only ? 'is-single' : ''}`} aria-label="Контакты напрямую">
+  {people.map(({ k, a, links }) => (
+    <div class="cl-person">
+      <div class="cl-head">
+        {a.photoSm && <img src={withBase(a.photoSm)} alt={a.name} width="56" height="56" loading="lazy" decoding="async" />}
+        <div><b>{a.name}</b><span>{topic[k]}</span></div>
+      </div>
+      <ul>
+        {links.map((l) => (
+          <li><a class={`cl-link cl-${l.kind}`} href={l.url} {...(l.kind === 'mail' ? {} : { target: '_blank', rel: 'noopener me' })}>
+            <span class="cl-icon" set:html={CONTACT_ICONS[l.kind]} />
+            <span class="cl-text"><span class="cl-label">{l.label}</span><span class="cl-handle">{l.handle}</span></span>
+          </a></li>
+        ))}
+      </ul>
+    </div>
+  ))}
+</section>

@@ -40,7 +40,7 @@ for (const f of files) {
   for (const m of h.matchAll(/<img [^>]*>/g)) if (!/ alt="/.test(m[0])) issues.push('img без alt');
   const text = strip(h.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>/g, ''));
   if (text.includes('—')) issues.push(`em-dash ×${text.split('—').length - 1}`);
-  for (const m of h.matchAll(/<a [^>]*href="(https?:\/\/[^"]+)"[^>]*>/g)) if (!/rel="nofollow noopener"/.test(m[0]) && !m[1].includes('github.io')) warns.push(`внешняя без nofollow ${m[1].slice(0, 50)}`);
+  for (const m of h.matchAll(/<a [^>]*href="(https?:\/\/[^"]+)"[^>]*>/g)) if (!/rel="nofollow noopener"/.test(m[0]) && !/rel="[^"]*\bme\b/.test(m[0]) && !m[1].includes('github.io')) warns.push(`внешняя без nofollow ${m[1].slice(0, 50)}`);
   if (issues.length) crit++;
   if (warns.length) warn++;
   if (issues.length || warns.length) rows.push(`${rel}: ${[...issues.map((x) => 'CRIT ' + x), ...warns.map((x) => 'WARN ' + x)].join('; ')}`);

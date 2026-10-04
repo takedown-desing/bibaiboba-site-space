@@ -1,5 +1,5 @@
 // JSON-LD @graph из шапки черновика. FAQ и title переносятся слово в слово (контракт пайплайна).
-import { SITE, AUTHORS, absUrl } from './site.mjs';
+import { CONTACTS, SITE, AUTHORS, absUrl } from './site.mjs';
 
 export function buildGraph(d) {
   const url = absUrl(d.url);
@@ -13,7 +13,7 @@ export function buildGraph(d) {
   const authorKeys = d.author === 'both' ? ['aleksey', 'valentin'] : [d.author || 'aleksey'];
   for (const k of ['aleksey', 'valentin']) {
     const a = AUTHORS[k];
-    const p = { '@type': 'Person', '@id': a.id, name: a.name, jobTitle: a.role, url: absUrl(a.url), worksFor: { '@id': SITE.orgId }, ...(a.photo ? { image: absUrl(a.photo) } : {}) };
+    const p = { '@type': 'Person', '@id': a.id, name: a.name, jobTitle: a.role, url: absUrl(a.url), worksFor: { '@id': SITE.orgId }, ...(a.photo ? { image: absUrl(a.photo) } : {}), ...(CONTACTS[k] ? { sameAs: CONTACTS[k].filter((c) => c.kind !== 'mail').map((c) => c.url) } : {}) };
     if (d.type === 'person' && d.person && d.url === a.url) {
       p.jobTitle = d.person.job_title || p.jobTitle;
       if (d.person.knows_about) p.knowsAbout = d.person.knows_about;
