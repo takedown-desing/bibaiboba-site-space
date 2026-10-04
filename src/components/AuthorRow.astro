@@ -6,6 +6,6 @@ const list = author === 'both' ? [AUTHORS.aleksey, AUTHORS.valentin] : [AUTHORS[
 const ds = new Date(String(date)).toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 <div class="author-row">
-  {list.map((a) => <a class="author" href={withBase(a.url)}><i aria-hidden="true">{a.initials}</i><span><b>{a.name}</b>{a.role}</span></a>)}
+  {list.map((a) => <a class="author" href={withBase(a.url)}>{a.photoSm ? <img class="author-photo" src={withBase(a.photoSm)} alt={a.name} width="44" height="44" loading="lazy" decoding="async" /> : <i aria-hidden="true">{a.initials}</i>}<span><b>{a.name}</b>{a.role}</span></a>)}
   <span class="updated">Обновлено: <time datetime={String(date)}>{ds}</time></span>
 </div>

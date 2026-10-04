@@ -2,13 +2,17 @@
 // Первый экран внутренних страниц: кадр Меркурия из промта 2, гигантский узкий H1, строки фактов.
 import Header from './Header.astro';
 import { withBase } from '../lib/site.mjs';
+import { AUTHORS } from '../lib/site.mjs';
+import { previewFor } from '../lib/previews.mjs';
 interface Props { d: any }
 const { d } = Astro.props;
+const own = previewFor(d.url);
+const person = d.type === 'person' ? (d.url === AUTHORS.valentin.url ? AUTHORS.valentin : AUTHORS.aleksey) : null;
 const MERCURY = 'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/d6fb8b6b-c15e-4aaa-9cf7-45bbb5e33372.jpg';
 const cta = d.hero_cta || {};
 ---
 <section class="page-hero">
-  <img class="page-hero-bg" src={MERCURY} alt="" fetchpriority="high" decoding="async" />
+  <img class={`page-hero-bg ${own?.own && !person ? 'is-own' : ''}`} src={own?.own && !person ? withBase(own.file) : MERCURY} alt="" fetchpriority="high" decoding="async" />
   <Header current={d.url} />
   <div class="page-hero-inner">
     {d.breadcrumbs?.length > 1 && (
@@ -23,7 +27,8 @@ const cta = d.hero_cta || {};
           {cta.secondary && <a class="pill pill-glass" href={withBase(cta.secondary.href)}>{cta.secondary.label}</a>}
         </div>
       </div>
-      {d.highlights?.length > 0 && (
+      {person && <img class="hero-portrait" src={withBase(person.photo)} alt={person.name} width="800" height="800" fetchpriority="high" decoding="async" />}
+      {!person && d.highlights?.length > 0 && (
         <dl class="facts">{d.highlights.map((h) => <div class="fact"><dt>{h.value}</dt><dd>{h.label}</dd></div>)}</dl>
       )}
     </div>

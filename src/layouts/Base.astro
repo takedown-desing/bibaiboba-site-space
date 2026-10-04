@@ -5,9 +5,13 @@ import Footer from '../components/Footer.astro';
 import Cursor from '../components/Cursor.astro';
 import { SITE, absUrl, withBase } from '../lib/site.mjs';
 import { buildGraph } from '../lib/schema.mjs';
+import { previewFor } from '../lib/previews.mjs';
 interface Props { d: any; home?: boolean }
 const { d, home = false } = Astro.props;
 const graph = buildGraph(d);
+const ogPrev = previewFor(d.url);
+const ogImage = ogPrev?.own ? absUrl(ogPrev.file.replace(/\.webp$/, '.jpg')) : absUrl('/og.png');
+const ogSize = ogPrev?.own ? [1200, 800] : [1200, 630];
 ---
 <!doctype html>
 <html lang="ru">
@@ -24,9 +28,9 @@ const graph = buildGraph(d);
     <meta property="og:title" content={d.og_title || d.title} />
     <meta property="og:description" content={d.og_description || d.description} />
     <meta property="og:url" content={absUrl(d.url)} />
-    <meta property="og:image" content={absUrl('/og.png')} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content={String(ogSize[0])} />
+    <meta property="og:image:height" content={String(ogSize[1])} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#090807" />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />

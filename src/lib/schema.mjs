@@ -13,7 +13,7 @@ export function buildGraph(d) {
   const authorKeys = d.author === 'both' ? ['aleksey', 'valentin'] : [d.author || 'aleksey'];
   for (const k of ['aleksey', 'valentin']) {
     const a = AUTHORS[k];
-    const p = { '@type': 'Person', '@id': a.id, name: a.name, jobTitle: a.role, url: absUrl(a.url), worksFor: { '@id': SITE.orgId } };
+    const p = { '@type': 'Person', '@id': a.id, name: a.name, jobTitle: a.role, url: absUrl(a.url), worksFor: { '@id': SITE.orgId }, ...(a.photo ? { image: absUrl(a.photo) } : {}) };
     if (d.type === 'person' && d.person && d.url === a.url) {
       p.jobTitle = d.person.job_title || p.jobTitle;
       if (d.person.knows_about) p.knowsAbout = d.person.knows_about;

@@ -13,8 +13,8 @@ export const withBase = (p = '/') => {
 };
 export const absUrl = (p = '/') => SITE.origin + withBase(p);
 export const AUTHORS = {
-  aleksey: { id: 'https://bibaiboba.example/#aleksey', name: 'Алексей Боровиков', role: 'SEO-специалист, поиск, нейросети и сайты', url: '/o-nas/aleksey-borovikov/', initials: 'АБ', since: 'в SEO с 2018 года' },
-  valentin: { id: 'https://bibaiboba.example/#valentin', name: 'Валентин Баранов', role: 'Авитолог, продвижение на Авито', url: '/o-nas/valentin-baranov/', initials: 'ВБ', since: 'на Авито с 2018 года' },
+  aleksey: { id: 'https://bibaiboba.example/#aleksey', name: 'Алексей Боровиков', role: 'SEO-специалист, поиск, нейросети и сайты', url: '/o-nas/aleksey-borovikov/', initials: 'АБ', since: 'в SEO с 2018 года', photo: '/img/team/aleksey.webp', photoSm: '/img/team/aleksey-sm.webp' },
+  valentin: { id: 'https://bibaiboba.example/#valentin', name: 'Валентин Баранов', role: 'Авитолог, продвижение на Авито', url: '/o-nas/valentin-baranov/', initials: 'ВБ', since: 'на Авито с 2018 года', photo: '/img/team/valentin.webp', photoSm: '/img/team/valentin-sm.webp' },
 };
 
 // Меню шапки: разделы с выпадающими подразделами (общая структура для вариантов Light и Space).

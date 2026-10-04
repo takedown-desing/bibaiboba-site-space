@@ -1,1 +1,302 @@
-{}
+{
+ "audit-besplatno": {
+  "file": "/img/preview/audit-besplatno.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Открытая подарочная коробка с лупой внутри"
+ },
+ "audit-sajta-tehnicheskij": {
+  "file": "/img/preview/audit-sajta-tehnicheskij.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Стетоскоп на корпусе сервера, рядом шкала диагностики"
+ },
+ "audit-sajta-yuzabiliti": {
+  "file": "/img/preview/audit-sajta-yuzabiliti.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Путь курсора пунктиром по макету страницы"
+ },
+ "audit-sajta": {
+  "file": "/img/preview/audit-sajta.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Планшет с чек-листом, лупа и страница сайта"
+ },
+ "avito-konsultaciya": {
+  "file": "/img/preview/avito-konsultaciya.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Два кресла друг напротив друга и смартфон на столике"
+ },
+ "avitolog": {
+  "file": "/img/preview/avitolog.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Смартфон с сеткой объявлений и рупор"
+ },
+ "brif": {
+  "file": "/img/preview/brif.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Планшет с анкетой и карандаш"
+ },
+ "dorabotka-sajta": {
+  "file": "/img/preview/dorabotka-sajta.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Инструменты чинят треснувшую карточку сайта"
+ },
+ "geo-audit": {
+  "file": "/img/preview/geo-audit.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Лупа изучает сферу нейросети"
+ },
+ "geo-prodvizhenie-v-nejrosetyah": {
+  "file": "/img/preview/geo-prodvizhenie-v-nejrosetyah.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Облачко ответа выходит из нейросети и несёт карточку сайта"
+ },
+ "geo": {
+  "file": "/img/preview/geo.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Сфера нейросети, связанная нитями света с карточкой сайта"
+ },
+ "home": {
+  "file": "/img/preview/home.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Облачко сообщения со спутником: три канала заявок"
+ },
+ "kejsy-avito-almaznaya-rezka-betona": {
+  "file": "/img/preview/kejsy-avito-almaznaya-rezka-betona.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Алмазная коронка вырезает круглое отверстие в бетоне"
+ },
+ "kejsy-avito-elektrika-pod-klyuch": {
+  "file": "/img/preview/kejsy-avito-elektrika-pod-klyuch.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Аккуратный электрощит и катушка кабеля"
+ },
+ "kejsy-avito-geodezist": {
+  "file": "/img/preview/kejsy-avito-geodezist.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Тахеометр на штативе в поле у небольшого города"
+ },
+ "kejsy-avito-mebel-na-zakaz": {
+  "file": "/img/preview/kejsy-avito-mebel-na-zakaz.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Деревянный шкаф на заказ в шоуруме"
+ },
+ "kejsy-avito-mini-krany": {
+  "file": "/img/preview/kejsy-avito-mini-krany.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Компактный мини-кран поднимает блок"
+ },
+ "kejsy-avito-prodazha-shin-sklad": {
+  "file": "/img/preview/kejsy-avito-prodazha-shin-sklad.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Стеллажи склада, заполненные шинами"
+ },
+ "kejsy-avito-remont-kvartir-20-gorodov": {
+  "file": "/img/preview/kejsy-avito-remont-kvartir-20-gorodov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Валик и инструменты на плане квартиры с метками"
+ },
+ "kejsy-avito-remont-stiralnyh-mashin-70-gorodov": {
+  "file": "/img/preview/kejsy-avito-remont-stiralnyh-mashin-70-gorodov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Стиральная машина на фоне карты с множеством меток"
+ },
+ "kejsy-avito-sertifikaciya-dlya-marketplejsov": {
+  "file": "/img/preview/kejsy-avito-sertifikaciya-dlya-marketplejsov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Коробки товаров с крупной печатью сертификата"
+ },
+ "kejsy-avito-vskrytie-zamkov-35-gorodov": {
+  "file": "/img/preview/kejsy-avito-vskrytie-zamkov-35-gorodov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Дверной замок и ключ на фоне созвездия точек"
+ },
+ "kejsy-avito-vskrytie-zamkov-konkurentnyj-gorod": {
+  "file": "/img/preview/kejsy-avito-vskrytie-zamkov-konkurentnyj-gorod.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Ключ в замке среди множества закрытых дверей"
+ },
+ "kejsy-avito-vykup-shin-i-diskov": {
+  "file": "/img/preview/kejsy-avito-vykup-shin-i-diskov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Стопка шин и литые диски"
+ },
+ "kejsy": {
+  "file": "/img/preview/kejsy.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Полка с предметами разных профессий"
+ },
+ "kontakty": {
+  "file": "/img/preview/kontakty.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Бумажный самолётик вылетает из облачка сообщения"
+ },
+ "kontent-dlya-sajta": {
+  "file": "/img/preview/kontent-dlya-sajta.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Перьевая ручка рисует линию, которая превращается в блоки текста"
+ },
+ "o-nas-aleksey-borovikov": {
+  "file": "/img/preview/o-nas-aleksey-borovikov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Рабочий стол: ноутбук с графиками поиска и сфера нейросети"
+ },
+ "o-nas-valentin-baranov": {
+  "file": "/img/preview/o-nas-valentin-baranov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Смартфон с карточками объявлений и блокнот с графиком роста"
+ },
+ "o-nas": {
+  "file": "/img/preview/o-nas.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Большая и малая сферы на подиуме, как планета и спутник"
+ },
+ "podderzhka-sajta": {
+  "file": "/img/preview/podderzhka-sajta.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Щит и спасательный круг вокруг карточки сайта"
+ },
+ "prodvizhenie-na-avito": {
+  "file": "/img/preview/prodvizhenie-na-avito.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Карточки объявлений поднимаются из смартфона как график роста"
+ },
+ "prototip-sajta": {
+  "file": "/img/preview/prototip-sajta.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Эскизы страниц на бумаге, карандаш и линейка"
+ },
+ "redizajn-sajta": {
+  "file": "/img/preview/redizajn-sajta.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Старый монитор превращается в современный экран"
+ },
+ "seo-google": {
+  "file": "/img/preview/seo-google.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Маяк освещает парящие страницы сайта"
+ },
+ "seo-internet-magazin": {
+  "file": "/img/preview/seo-internet-magazin.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Пакет покупок и коробки на полках-столбиках графика"
+ },
+ "seo-novyj-sajt": {
+  "file": "/img/preview/seo-novyj-sajt.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Росток растёт из карточки нового сайта"
+ },
+ "seo-optimizaciya": {
+  "file": "/img/preview/seo-optimizaciya.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Точные инструменты вокруг макета страницы сайта"
+ },
+ "seo-regiony": {
+  "file": "/img/preview/seo-regiony.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Рельефная карта из плиток с метками, соединёнными линиями"
+ },
+ "seo-sajt-uslug": {
+  "file": "/img/preview/seo-sajt-uslug.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Ящик с инструментами и звонок обслуживания рядом с карточкой сайта"
+ },
+ "seo-specialist": {
+  "file": "/img/preview/seo-specialist.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Рабочее место специалиста: лампа, ноутбук с графиками, блокнот"
+ },
+ "seo-yandex": {
+  "file": "/img/preview/seo-yandex.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Компас со стрелкой вверх над стопкой страниц"
+ },
+ "seo": {
+  "file": "/img/preview/seo.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Лупа над стопкой страниц сайта, одна страница поднимается вверх"
+ },
+ "sozdanie-sajtov-dlya-malogo-biznesa": {
+  "file": "/img/preview/sozdanie-sajtov-dlya-malogo-biznesa.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Маленькая витрина магазина, окно которой стало сайтом"
+ },
+ "sozdanie-sajtov-korporativnyj-sajt": {
+  "file": "/img/preview/sozdanie-sajtov-korporativnyj-sajt.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Современное здание из страниц сайта"
+ },
+ "sozdanie-sajtov-lending": {
+  "file": "/img/preview/sozdanie-sajtov-lending.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Длинная страница разворачивается как свиток"
+ },
+ "sozdanie-sajtov-na-nejrosetyah": {
+  "file": "/img/preview/sozdanie-sajtov-na-nejrosetyah.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Манипуляторы собирают страницу сайта из светящихся блоков"
+ },
+ "sozdanie-sajtov-s-prodvizheniem": {
+  "file": "/img/preview/sozdanie-sajtov-s-prodvizheniem.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Карточка сайта взлетает на ракете"
+ },
+ "sozdanie-sajtov-sajt-vizitka": {
+  "file": "/img/preview/sozdanie-sajtov-sajt-vizitka.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Визитка раскрывается в маленький сайт из трёх страниц"
+ },
+ "sozdanie-sajtov": {
+  "file": "/img/preview/sozdanie-sajtov.webp",
+  "width": 1200,
+  "height": 800,
+  "alt": "Строительные блоки собираются в макет сайта"
+ }
+}
